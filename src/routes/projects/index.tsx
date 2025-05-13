@@ -31,7 +31,7 @@ export default component$(() => {
   ]);
 
   return (
-    <div class="project-page">
+    <div class="project-page flex flex-col items-center justify-center">
       <h1 class="page-title">Mes Projets</h1>
       <ProjectList projects={projects.value} />
     </div>
