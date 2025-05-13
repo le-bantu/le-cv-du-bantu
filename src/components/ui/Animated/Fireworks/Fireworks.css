@@ -1,0 +1,50 @@
+.fireworks-container {
+    @apply fixed inset-0 flex items-center justify-center z-50;
+    pointer-events: none;
+  }
+  
+  .firework {
+    @apply w-2 h-2 bg-primary rounded-full absolute;
+    animation: explode 1s linear infinite;
+  }
+  
+  @keyframes explode {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(var(--x), var(--y)) scale(2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(var(--x2), var(--y2)) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Variations de feu d'artifice */
+  .firework:nth-child(1) {
+    --x: 50px;
+    --y: -50px;
+    --x2: 100px;
+    --y2: -100px;
+    background-color: #d68614;
+  }
+  
+  .firework:nth-child(2) {
+    --x: -50px;
+    --y: -50px;
+    --x2: -100px;
+    --y2: -100px;
+    background-color: #e5c263;
+  }
+  
+  .firework:nth-child(3) {
+    --x: 50px;
+    --y: 50px;
+    --x2: 100px;
+    --y2: 100px;
+    background-color: #d5701c;
+  }
+  

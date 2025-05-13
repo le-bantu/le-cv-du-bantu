@@ -1,0 +1,63 @@
+.services-section {
+    @apply mt-2 pb-16 pt-8 px-4 text-center bg-gray-100 dark:bg-black text-gray-800 dark:text-gray-100 w-full;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold mb-4 text-deepbrown dark:text-white;
+  }
+  
+  .section-description {
+    @apply text-lg mb-8;
+  }
+  
+  .services-wrapper {
+    @apply flex flex-wrap justify-center gap-8;
+  }
+  
+  
+  .service-card {
+    @apply backdrop-blur-lg bg-white/30 relative w-64 p-6 pt-20 mt-12 bg-white bg-opacity-30 dark:bg-opacity-20 rounded-xl shadow-lg text-gray-800 dark:text-gray-100 transition-transform duration-300;
+    backdrop-filter: blur(1px);
+    border: 1px solid transparent;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: #d68614;
+    cursor: pointer;
+  }
+  
+  .icon-wrapper {
+    @apply flex justify-center items-center;
+  }
+  
+  .icon-image {
+    @apply w-fit h-40 absolute -top-20;
+  }
+  
+  .service-title {
+    @apply text-xl font-semibold mb-2;
+  }
+  
+  .service-description {
+    @apply text-sm;
+  }
+  
+  @media (max-width: 768px) {
+    .services-wrapper {
+      @apply flex-col items-center;
+    }
+  
+    .service-card {
+      @apply w-full;
+    }
+  }
+  

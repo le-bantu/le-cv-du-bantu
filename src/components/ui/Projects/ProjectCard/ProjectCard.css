@@ -1,0 +1,51 @@
+.project-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.75rem;
+    height: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .project-card:hover .project-info {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .project-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .tech-icons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tech-icons i {
+    transition: transform 0.2s ease;
+  }
+  
+  .project-card:hover .tech-icons i {
+    transform: translateY(-4px);
+  }
+  

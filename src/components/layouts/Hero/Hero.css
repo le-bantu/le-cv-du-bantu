@@ -1,0 +1,174 @@
+/* Ajoutez ces styles */
+.background-pattern {
+    @apply absolute inset-0 z-0;
+    background-image: var(--bg-image);
+    background-repeat: repeat;
+    background-position: center;
+    object-fit: cover;
+    background-size: contain;
+    opacity: var(--bg-opacity);
+    filter: invert(0);
+    pointer-events: none; /* Permet les clics à travers le fond */
+    transition: 
+        opacity 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+/* Dark mode */
+.dark .background-pattern {
+    filter: invert(var(--dark-invert));
+    opacity: var(--dark-bg-opacity, var(--bg-opacity));
+}
+
+/* Conservez vos styles existants */
+.hero-inner {
+    @apply relative z-20; /* Doit être supérieur à z-index du fond */
+}
+
+.hero-container {
+    @apply w-full pt-10 pb-2 bg-white dark:bg-[#0c0b0b] text-black dark:text-white transition-all duration-700;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Et dans le CSS */
+.hero-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-image);
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: contain;
+    opacity: var(--bg-opacity, 1);
+    z-index: 1;
+    mix-blend-mode: multiply; /* Pour mieux intégrer le filigrane */
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-inner {
+    @apply max-w-[95%] mx-auto flex items-center gap-8;
+}
+
+
+/* text section  */
+
+.text-section {
+    @apply flex flex-col gap-2;
+    max-width: 55%;
+}
+
+.text-section h5 {
+    @apply text-3xl font-semibold;
+}
+
+.text-section h1 {
+    @apply text-4xl font-bold text-primary;
+}
+
+.text-section h3 {
+    @apply text-3xl font-semibold text-secondary;
+}
+
+.text-section p {
+    @apply text-lg my-4 dark:text-white;
+}
+
+.btn-primary {
+    @apply inline-block px-4 py-2 bg-secondary text-white rounded-md hover:shadow-2xl transition-all duration-500 ease-out ;
+}
+
+.profile-image {
+    @apply w-fit h-[30rem] hover:scale-[1.05] transition-all ease-in-out hover:cursor-pointer;
+}
+
+.social-links {
+    @apply flex flex-col gap-4 mt-4;
+}
+
+.social-links a {
+    @apply dark:text-white text-primary text-2xl hover:text-primary transition;
+}
+
+.bar {
+    @apply flex flex-col items-center gap-4;
+}
+
+.scroll-indicator {
+    @apply flex flex-col gap-2 justify-center items-center;
+}
+
+.phone-text {
+    @apply text-lg font-semibold;
+}
+
+/* Custom Classes */
+.vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: horizontal;
+    text-color: hsl(0, 0%, 20%);
+}
+
+.font-lover {
+    font-family: 'Omnes', sans-serif;
+}
+
+.text-with-border {
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+}
+
+.first,
+.last {
+    @apply text-7xl;
+    text-shadow: 3px 3px 0 #BE3610, -1px -1px 0 #b7c7b9, 1px -1px 0 #b7c7b9, -1px 1px 0 #b7c7b9, 1px 1px 0 #b7c7b9;
+}
+
+
+.hero-content {
+    @apply flex justify-center items-center gap-8;
+}
+
+@media (max-width: 980px) {
+
+    .bar {
+        @apply !hidden;
+    }
+
+    .hero-container {
+        @apply text-center pb-6;
+    }
+
+    .hero-content {
+        @apply flex flex-col-reverse;
+    }
+
+    .text-section {
+        @apply max-w-full flex flex-col items-center;
+    }
+
+    .text-section h1 {
+        @apply text-3xl;
+    }
+
+    .text-section h3 {
+        @apply text-3xl;
+    }
+
+    .profile-image {
+        @apply w-fit h-[20rem];
+    }
+
+    .social-bar {
+        @apply hidden;
+    }
+
+    .social-links {
+        @apply justify-center;
+    }
+}

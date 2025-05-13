@@ -1,0 +1,97 @@
+.contact-section {
+    @apply w-full relative mt-2 py-16 bg-gray-100 dark:bg-black text-gray-800 dark:text-gray-100;
+  }
+  
+  .background-image {
+    @apply absolute top-0 right-0 w-full h-full bg-cover bg-no-repeat opacity-10;
+    background-image: url('/assets/background.png');
+  }
+  
+  .contact-container {
+    @apply relative z-10 flex flex-wrap justify-center lg:justify-between items-center gap-8 mx-auto max-w-6xl px-4;
+  }
+  
+  .image-container {
+    @apply hidden lg:flex justify-center items-center;
+  }
+  
+  .bounce-image {
+    @apply w-80 h-80 object-cover rounded-full;
+    animation: bounce 2s infinite ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .form-container {
+    @apply   p-8 w-[60%];
+  }
+  
+  .form-title {
+    @apply text-2xl font-bold mb-4;
+  }
+  
+  .contact-form {
+    @apply space-y-4;
+  }
+  
+  .name-group {
+    @apply flex gap-4;
+  }
+  
+  .input-group {
+    @apply relative flex items-center;
+  }
+  
+  .contact-input, .contact-textarea {
+    @apply w-full p-3 rounded-xl border-2 transition-all focus:border-secondary focus:outline-none dark:bg-black;
+    /* border-image: linear-gradient(to right, #e5c263, #d68614) 1; */
+  }
+  
+  /* .contact-input:hover, .contact-textarea:hover {
+    border-image: linear-gradient(to right, #d68614, #e5c263) 1;
+  } */
+  
+  .icon {
+    @apply absolute right-3 text-gray-500;
+  }
+  
+  .button-group {
+    @apply flex gap-4 justify-start mt-4;
+  }
+  
+  .contact-button {
+    @apply flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-secondary text-white hover:bg-brown transition-all duration-300 ease-in-out;
+  }
+  
+  .whatsapp {
+    @apply bg-brown hover:bg-deepbrown;
+  }
+  
+  @media (max-width: 768px) {
+    .background-image {
+      @apply hidden;
+    }
+  
+    .image-container {
+      @apply hidden;
+    }
+  
+    .contact-container {
+      @apply flex-col items-center;
+    }
+  
+    .name-group {
+      @apply flex-col;
+    }
+  
+    .button-group {
+      @apply flex-col gap-2 justify-center;
+    }
+    .form-container {
+        @apply w-full;
+     }
+  }
+  

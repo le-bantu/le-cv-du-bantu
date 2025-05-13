@@ -1,0 +1,87 @@
+.work-with-me {
+    @apply w-full mt-2 py-8 px-4 bg-gray-100 dark:bg-[#0c0b0b] text-gray-800 dark:text-gray-100 text-center;
+}
+
+.work-with-me h2 {
+    @apply text-2xl font-semibold mb-2;
+}
+
+/* .work-with-me p {
+    @apply ;
+  } */
+
+.marquee-container {
+    @apply overflow-hidden relative w-[100%] mt-4 max-w-[1128px] flex gap-8 p-4 justify-center items-center mx-auto;
+}
+
+.marquee {
+    @apply flex items-center gap-8 whitespace-nowrap;
+    animation: marquee 15s linear infinite;
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+.company-logo {
+    @apply w-40 h-24 flex flex-col items-center justify-center;
+}
+
+.company-logo img {
+   @apply filter;
+}
+
+.company-name {
+    @apply mt-2 text-sm font-semibold text-gray-600 dark:text-gray-300;
+}
+
+.logo {
+    @apply max-w-full max-h-full;
+}
+
+/* Animation for marquee */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Animation for desktop appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1128px) {
+    .marquee {
+        animation: none;
+    }
+
+    .company-logo {
+        @apply opacity-0 transition-opacity duration-700 ease-in-out;
+        animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .company-logo:hover {
+        @apply scale-105 transform duration-300 ease-in-out;
+    }
+
+    .company-logo.visible {
+        @apply opacity-100;
+    }
+
+    .marquee-container {
+        @apply justify-center gap-2;
+    }
+}

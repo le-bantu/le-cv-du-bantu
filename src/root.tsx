@@ -1,4 +1,6 @@
 import { component$ } from "@builder.io/qwik";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import {
   QwikCityProvider,
   RouterOutlet,

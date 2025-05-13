@@ -1,0 +1,33 @@
+@import url('https://fonts.cdnfonts.com/css/omnes-2');
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-black dark:bg-black dark:text-white;
+  font-family: 'Omnes', sans-serif;
+}
+
+/* Définition de l'animation */
+@keyframes chair-rocking {
+  0%, 100% {
+    transform: rotate(-3deg);
+    transform-origin: bottom center;
+  }
+  50% {
+    transform: rotate(3deg);
+    transform-origin: bottom center;
+  }
+}
+
+/* Application à votre élément chaise */
+.chair {
+  animation: chair-rocking 3s ease-in-out infinite;
+  /* Ajustez la durée (3s) pour un mouvement plus lent/rapide */
+}

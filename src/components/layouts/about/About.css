@@ -1,0 +1,33 @@
+.about-container {
+    @apply mt-2 flex justify-center items-center gap-6 px-4 py-5 w-full bg-slate-100 dark:bg-black;
+}
+
+.about--text-name {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brown via-secondary to-primary;
+}
+
+.about--text-content {
+    @apply w-[50%] flex flex-col gap-4;
+}
+
+.img-box {
+    
+    @apply p-2;
+    
+    img {
+        @apply w-fit h-96;
+    }
+}
+
+
+/* gradient text */
+
+@media (max-width: 768px) {
+    .about-container {
+        @apply flex-col;
+    }
+
+    .about--text-content {
+        @apply w-full text-center;
+    }
+}
