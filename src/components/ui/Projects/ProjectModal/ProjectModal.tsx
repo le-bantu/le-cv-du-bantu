@@ -1,32 +1,47 @@
-import { component$, $, useSignal, PropFunction } from '@builder.io/qwik';
-import { Project } from '../types';
-import './ProjectModal.css';
+import { component$, PropFunction } from "@builder.io/qwik";
+import "./ProjectModal.css";
 
 interface ProjectModalProps {
-  project: Project;
+  project: {
+    name: string;
+    description: string;
+    image: string;
+    technologies: string[];
+    link: string;
+    github?: string;
+  };
   onClose$: PropFunction<() => void>;
 }
 
 export const ProjectModal = component$(({ project, onClose$ }: ProjectModalProps) => {
-  const isClosing = useSignal(false);
-
-  const handleClose = $(() => {
-    isClosing.value = true;
-    setTimeout(() => onClose$(), 300); // Delay to sync with closing animation
-  });
-
   return (
-    <div class={`modal-backdrop ${isClosing.value ? 'fade-out' : 'fade-in'}`}>
-      <div class="modal-content">
-        <button class="close-button" onClick$={handleClose}>
-          ✕
-        </button>
+    <div class="modal-overlay" onClick$={onClose$}>
+      <div class="modal-content" onClick$={(e) => e.stopPropagation()}>
+        <button class="close-button" onClick$={onClose$}>×</button>
         <h2 class="modal-title">{project.name}</h2>
-        <div class="modal-image" style={{ backgroundImage: `url(${project.image})` }}></div>
-        <p class="modal-description">{project.description}</p>
-        <a href={project.link} target="_blank" class="modal-link">
-          Voir le projet
-        </a>
+        <div class="modal-body">
+          <img src={project.image} alt={project.name} class="modal-project-image" />
+          <div class="modal-details">
+            <p class="modal-description">{project.description}</p>
+            <div class="tech-badges">
+              {project.technologies.map((tech) => (
+                <span key={tech} class="tech-badge">{tech}</span>
+              ))}
+            </div>
+            <div class="modal-links">
+              {project.link && (
+                <a href={project.link} target="_blank" class="modal-link">
+                  <i class="fas fa-external-link-alt"></i> Visit Project
+                </a>
+              )}
+              {project.github && project.github !== "" && (
+                <a href={project.github} target="_blank" class="modal-link">
+                  <i class="fab fa-github"></i> View on GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

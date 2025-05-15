@@ -1,29 +1,24 @@
-import { component$, $, useSignal } from '@builder.io/qwik';
-import { Project } from '../types';
-import './ProjectCard.css'
+import { component$, PropFunction } from "@builder.io/qwik";
+import "./ProjectCard.css";
 
 interface ProjectCardProps {
-  project: Project;
+  name: string;
+  image: string;
+  technologies: string[];
+  onClick$: PropFunction<() => void>;
 }
 
-export const ProjectCard = component$(({ project }: ProjectCardProps) => {
-  const isModalOpen = useSignal(false);
-
-  const handleClick = $(() => {
-    isModalOpen.value = true;
-  });
-
+export const ProjectCard = component$(({ name, image, technologies, onClick$ }: ProjectCardProps) => {
   return (
-    <div 
-      class="project-card group" 
-      onClick$={handleClick}
-      style={{ backgroundImage: `url(${project.image})` }}
-    >
-      <div class="project-info">
-        <h3 class="project-name">{project.name}</h3>
+    <div class="project-card" onClick$={onClick$}>
+      <div class="card-image-container ">
+        <img src={image} alt={name} class="project-image" />
+      </div>
+      <div class="description-container">
+        <h3 class="project-title">{name}</h3>
         <div class="tech-icons">
-          {project.technologies.map((tech) => (
-            <i key={tech} class={`fab fa-${tech} text-xl`}></i>
+          {technologies.map((tech) => (
+            <span key={tech} class="tech-icon">{tech}</span>
           ))}
         </div>
       </div>

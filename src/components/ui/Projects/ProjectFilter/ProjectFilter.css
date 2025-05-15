@@ -1,76 +1,81 @@
-.project-filter {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+.banner-container {
+  @apply relative bg-cover bg-center py-16 rounded-xl mb-12 object-cover shadow-md;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-content {
+  @apply text-white text-center p-8;
+}
+
+.banner-message {
+  @apply text-3xl font-bold rounded-xl w-fit text-center mx-auto;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+}
+
+.filter-container {
+  @apply absolute z-10 w-fit bottom-[-3rem] left-1/2 transform -translate-x-1/2 p-4 rounded-lg border-2 border-secondary shadow-md flex gap-4 flex-wrap justify-center items-center;
+  background: rgba(255, 255, 255, 0.2);
+  /* Fond semi-transparent */
+  backdrop-filter: blur(10px);
+  /* Effet de flou pour le glassmorphism */
+}
+
+.input-icon {
+  @apply relative;
+}
+
+.search-input {
+  @apply px-4 py-1 pr-10 rounded-md border border-gray-300 focus:outline-none w-52;
+}
+
+.search-icon {
+  @apply absolute right-2 top-2 text-gray-500;
+}
+
+.type-filter {
+  @apply flex items-center justify-center gap-2 flex-wrap;
+}
+
+.type-button {
+  @apply px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300 transition flex items-center gap-1;
+}
+
+.type-button.active {
+  @apply bg-secondary text-white;
+}
+
+.tech-filter {
+  @apply relative;
+}
+
+.dropdown-button {
+  @apply px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300 transition flex items-center gap-1;
+}
+
+.badge {
+  @apply ml-2 bg-primary text-white rounded-full px-2 py-0.5 text-xs;
+}
+
+.dropdown-content {
+  @apply absolute mt-2 bg-white border border-gray-300 rounded-md shadow-lg p-2 max-h-40 overflow-auto;
+}
+
+.checkbox-label {
+  @apply flex gap-2 items-center py-1 cursor-pointer hover:bg-gray-100 rounded-md px-2;
+}
+
+input[type="checkbox"] {
+  @apply accent-primary;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    @apply flex-col gap-2 w-[80%] justify-center items-center;
   }
-  
-  .search-bar {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ddd;
-    outline: none;
-    width: 40%;
+
+  .search-input {
+    @apply w-full;
   }
-  
-  .type-filters {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .type-btn {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: #f0f0f0;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .type-btn.active {
-    background-color: #1F366B;
-    color: white;
-  }
-  
-  .type-btn:hover {
-    background-color: #ddd;
-  }
-  
-  .tech-filter {
-    position: relative;
-  }
-  
-  .tech-dropdown {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: #f0f0f0;
-    cursor: pointer;
-  }
-  
-  .tech-list {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    z-index: 10;
-  }
-  
-  .tech-filter:hover .tech-list {
-    display: block;
-  }
-  
-  .tech-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0.2rem 0;
-  }
-  
-  .tech-item input {
-    margin-right: 0.5rem;
-  }
-  
+}

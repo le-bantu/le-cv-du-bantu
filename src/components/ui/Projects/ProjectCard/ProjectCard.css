@@ -1,51 +1,71 @@
 .project-card {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    border-radius: 0.75rem;
-    height: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    overflow: hidden;
+  @apply relative w-72 h-96 overflow-hidden cursor-pointer transition-transform duration-300;
+  transform-style: preserve-3d;
+  transform: rotatex(0deg) rotateY(0) rotateZ(0);
+}
+
+.project-card:hover {
+  transform: perspective(1000px) rotateY(5deg) rotatex(5deg);
+}
+
+.card-image-container {
+  @apply w-full h-3/5 overflow-hidden rounded-lg border-2 border-secondary;
+}
+
+.project-image {
+  @apply w-full h-full object-cover transition-transform duration-300;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.03);
+}
+
+.description-container {
+  @apply absolute flex flex-col -z-10 ml-4 items-center bottom-20 left-auto pb-4  pt-10 right-auto w-[90%] px-4 rounded-b-lg text-white bg-opacity-100 bg-brown;
+  transform: translateY(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover .description-container {
+  transform: translateY(20px);
+}
+
+.project-title {
+  @apply text-xl font-semibold mb-1;
+}
+
+.tech-icons {
+  @apply flex gap-2 mt-2;
+}
+
+.tech-icon {
+  @apply text-sm bg-secondary px-2 py-1 rounded-md;
+}
+
+
+@media (max-width: 768px) {
+ 
+  .project-card {
+    @apply w-full ;
   }
-  
-  .project-card:hover {
-    transform: scale(1.05) rotate(1deg);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  .card-image-container {
+    @apply h-[60%];
   }
-  
-  .project-info {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
-    backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 0.75rem;
-    transition: background-color 0.3s ease;
+
+  .card-image-container > img {
+    @apply h-[100%];
   }
-  
-  .project-card:hover .project-info {
-    background-color: rgba(0, 0, 0, 0.7);
+
+  /* .description-container {
+    @apply p-3;
+  } */
+
+  .project-title {
+    @apply text-lg;
   }
-  
-  .project-name {
-    font-size: 1.5rem;
-    font-weight: bold;
+
+  .tech-icon {
+    @apply text-xs;
   }
-  
-  .tech-icons {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .tech-icons i {
-    transition: transform 0.2s ease;
-  }
-  
-  .project-card:hover .tech-icons i {
-    transform: translateY(-4px);
-  }
-  
+}

@@ -1,5 +1,5 @@
 import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
+import { Link, useLocation } from "@builder.io/qwik-city";
 import { navLinks } from "../../../data/navLinks";
 import "./Header.css";
 
@@ -41,14 +41,14 @@ export const Header = component$(() => {
 
       <nav class={`nav-links ${isMenuOpen.value ? "open" : "close"}`}>
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.text}
             href={link.route}
             class={`nav-item ${loc.url.pathname === link.route ? "active" : ""}`}
             onClick$={() => (isMenuOpen.value = false)}
           >
             {link.text}
-          </a>
+          </Link>
         ))}
       </nav>
 

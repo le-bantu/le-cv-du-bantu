@@ -12,69 +12,69 @@ export const ContactMe = component$(() => {
   });
 
   return (
-    <section class="contact-section" onDblClick$={triggerFireworks}>
+    <section class="contact" onDblClick$={triggerFireworks}>
       {showFireworks.value && (
-        <div class="fireworks-container">
-          <div class="firework"></div>
-          <div class="firework"></div>
-          <div class="firework"></div>
+        <div class="contact__fireworks">
+          <div class="contact__firework"></div>
+          <div class="contact__firework"></div>
+          <div class="contact__firework"></div>
         </div>
       )}
-      <div class="background-image"></div>
-      <div class="contact-container">
-        <div class="image-container">
+      <div class="contact__background"></div>
+      <div class="contact__container">
+        <div class="contact__image-container">
           <img
             src="/assets/profile-bounce.png"
             alt="Profile"
-            class="bounce-image"
+            class="contact__image contact__image--bounce"
           />
         </div>
 
-        <div class="form-container">
-          <h2 class="form-title">Contact Me</h2>
-          <form class="contact-form">
-            <div class="name-group">
-              <div class="input-group">
+        <div class="contact__form-container">
+          <h2 class="contact__title">Contact Me</h2>
+          <form class="contact__form">
+            <div class="contact__name-group">
+              <div class="contact__input-group">
                 <input
                   type="text"
                   placeholder="First Name"
-                  class="contact-input"
+                  class="contact__input"
                 />
-                <i class="fas fa-id-card icon"></i>
+                <i class="contact__icon fas fa-id-card"></i>
               </div>
-              <div class="input-group">
+              <div class="contact__input-group">
                 <input
                   type="text"
                   placeholder="Last Name"
-                  class="contact-input"
+                  class="contact__input"
                 />
-                <i class="fas fa-id-card-clip icon"></i>
+                <i class="contact__icon fas fa-id-card-clip"></i>
               </div>
             </div>
 
-            <div class="input-group">
+            <div class="contact__input-group">
               <input
                 type="email"
                 placeholder="Your Email"
-                class="contact-input"
+                class="contact__input"
               />
-              <i class="fas fa-envelope icon"></i>
+              <i class="contact__icon fas fa-envelope"></i>
             </div>
 
-            <div class="input-group">
+            <div class="contact__input-group">
               <textarea
                 placeholder="Your Message"
-                class="contact-textarea"
+                class="contact__textarea"
               ></textarea>
-              <i class="fas fa-comment icon"></i>
+              <i class="contact__icon fas fa-comment"></i>
             </div>
 
-            <div class="button-group">
-              <button type="submit" class="contact-button">
+            <div class="contact__button-group">
+              <button type="submit" class="contact__button contact__button--primary">
                 Send Message
                 <i class="fas fa-paper-plane"></i>
               </button>
-              <button type="button" class="contact-button whatsapp">
+              <button type="button" class="contact__button contact__button--whatsapp">
                 WhatsApp
                 <i class="fab fa-whatsapp"></i>
               </button>

@@ -1,97 +1,80 @@
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    animation: fadeIn 0.3s ease;
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50;
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  @apply relative bg-white dark:bg-gray-900 text-black dark:text-white p-6 rounded-lg shadow-xl w-fit max-w-3xl;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
   }
-  
-  .fade-in {
-    animation: fadeIn 0.3s ease forwards;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  .fade-out {
-    animation: fadeOut 0.3s ease forwards;
+}
+
+.close-button {
+  @apply absolute top-2 right-2 text-2xl text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+}
+
+.modal-title {
+  @apply text-2xl font-bold mb-4;
+}
+
+.modal-body {
+  @apply flex gap-6 items-center;
+  flex-wrap: wrap;
+}
+
+.modal-project-image {
+  @apply w-60 h-40 rounded-lg shadow-md object-cover;
+}
+
+.modal-details {
+  @apply flex-1;
+}
+
+.modal-description {
+  @apply mb-4;
+}
+
+.tech-badges {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+
+.tech-badge {
+  @apply bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-md text-sm;
+}
+
+.modal-links {
+  @apply flex gap-4 mt-4;
+}
+
+.modal-link {
+  @apply flex items-center gap-2 px-3 py-1 rounded-md bg-primary text-white hover:bg-secondary transition;
+}
+
+@media (max-width: 768px) {
+  .modal-body {
+    @apply flex-col items-center text-center;
   }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+
+  .modal-project-image {
+    @apply w-full h-48 mb-4;
   }
-  
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+
+  .modal-details {
+    @apply w-full;
   }
-  
-  .modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    animation: zoomIn 0.3s ease;
-  }
-  
-  @keyframes zoomIn {
-    from { transform: scale(0.8); }
-    to { transform: scale(1); }
-  }
-  
-  .modal-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .modal-image {
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    border-radius: 0.75rem;
-    margin: 1rem 0;
-  }
-  
-  .modal-description {
-    margin: 1rem 0;
-  }
-  
-  .modal-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #1F366B;
-    color: white;
-    border-radius: 0.5rem;
-    text-align: center;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-  }
-  
-  .modal-link:hover {
-    transform: scale(1.05);
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    font-size: 1.5rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .close-button:hover {
-    transform: scale(1.2);
-  }
-  
+}

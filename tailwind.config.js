@@ -23,5 +23,7 @@ module.exports = {
       'chair-rocking': 'chair-rocking 3s ease-in-out infinite',
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
