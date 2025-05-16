@@ -6,7 +6,7 @@ import { Info } from '../Info/Info';
 
 export const BioExpInfo = component$(() => {
   return (
-    <div class="bio-exp-info flex flex-col lg:flex-row gap-8">
+    <div class="relative bio-exp-info flex flex-col lg:flex-row gap-8">
       <BioExp />
       <Info />
     </div>

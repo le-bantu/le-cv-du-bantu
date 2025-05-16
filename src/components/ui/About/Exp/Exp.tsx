@@ -2,10 +2,11 @@
 
 import { component$ } from '@builder.io/qwik';
 import { ExperienceCard } from '../ExperienceCard/ExperienceCard';
+import './Exp.css';
 
 export const Exp = component$(() => {
   return (
-    <div class="exp flex flex-col gap-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-xl">
+    <div class="exp flex flex-col gap-4 p-4 bg-white border border-gray-100 dark:bg-[#1a1a1a] rounded-xl">
       <h2 class="text-lg font-semibold">Expériences</h2>
       <ExperienceCard 
         jobTitle="Développeur Fullstack" 

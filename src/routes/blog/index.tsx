@@ -22,7 +22,7 @@ export default component$(() => {
   );
 
   return (
-    <div class="pt-8 bg-slate-100">
+    <div class="pt-8 bg-slate-100 dark:bg-black">
       <div class="px-8">
         <BlogFilter
           message="Découvrez nos derniers articles"

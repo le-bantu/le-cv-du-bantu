@@ -22,7 +22,7 @@ export const Comment = component$(({ id, author, content, date, replies = [], on
   });
 
   return (
-    <div class="comment p-4 rounded-md mb-2 bg-gray-100 dark:bg-gray-800">
+    <div class="comment p-4 rounded-md mb-2 bg-gray-100 dark:bg-[#1a1a1a]">
       <p class="font-bold">{author} <span class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</span></p>
       <p>{content}</p>
       <button class="text-primary text-sm mt-2" onClick$={handleReplyClick}>

@@ -1,0 +1,50 @@
+/* src/components/LetsWorkTogether.css */
+
+/* Fond quadrillé avec effet de papier */
+.lets-work__container {
+  @apply relative p-8 bg-gray-50 dark:bg-[#1a1a1a] shadow-md;
+  background-image: 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px), 
+    linear-gradient(180deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow: hidden;
+}
+
+/* Effet quadrillé avec vignette lumineuse en mode dark */
+.lets-work__container.dark {
+  background-image: 
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 4px), 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 4px);
+  background-size: 20px 20px;
+  position: relative;
+}
+
+.lets-work__container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Titre avec coin plié */
+.title-wrapper {
+  @apply relative inline-block text-5xl font-bold text-gray-800 dark:text-gray-200 mb-4;
+}
+
+/* Effet Sticker */
+.sticker-box {
+  @apply relative -rotate-2 inline-block p-3 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-lg;
+  border: 2px solid white;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Coin plié réaliste et bien aligné */
+.folded-corner {
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  transform: translate(-2%, -1%) rotate(0deg);
+  background: linear-gradient(10deg, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 2px;
+}

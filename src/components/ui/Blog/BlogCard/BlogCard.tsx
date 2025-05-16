@@ -9,7 +9,16 @@ export const BlogCard = component$((props: Blog) => {
       <div class="blog-card__content">
         <h3 class="blog-card__title">{props.title}</h3>
         <p class="blog-card__excerpt">{props.excerpt}</p>
-        <span class="blog-card__meta">{props.author} - {new Date(props.date).toLocaleDateString()}</span>
+        <span class="blog-card__meta">
+          <span class="flex gap-2 items-center">
+            <i class="fas fa-user"></i>
+            {props.author}
+          </span>
+          <span class="flex gap-2 items-center">
+            <i class="fas fa-calendar"></i>
+            {new Date(props.date).toLocaleDateString()}
+          </span>
+        </span>
       </div>
     </a>
   );

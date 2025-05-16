@@ -19,4 +19,3 @@
 .about-header__info {
   @apply flex flex-col lg:flex-row justify-between items-center w-full gap-4;
 } */
-

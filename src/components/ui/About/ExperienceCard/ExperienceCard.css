@@ -1,0 +1,3 @@
+.experience-card:last-child {
+    @apply !border-none;
+}

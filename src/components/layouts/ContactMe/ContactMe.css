@@ -1,5 +1,5 @@
 .contact {
-  @apply w-full relative mt-2 py-16 bg-gray-200 dark:bg-black text-gray-800 dark:text-gray-100;
+  @apply w-full relative py-16 bg-gray-200 dark:bg-black text-gray-800 dark:text-gray-100;
 }
 
 .contact__background {
