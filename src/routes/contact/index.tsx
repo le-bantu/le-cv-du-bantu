@@ -8,7 +8,7 @@ export default component$(() => {
     <div>
       <ContactBanner />
       <LetsWorkTogether />
-      <ContactMe img="/assets/mask-4.png" />
+      <ContactMe img="/assets/mask-5.png" />
     </div>
   );
 });
