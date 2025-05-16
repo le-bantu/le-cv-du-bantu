@@ -9,7 +9,9 @@ export default component$(() => {
         <ProjectList />
       </div>
       <div class="mt-2">
-        <ContactMe />
+        <ContactMe 
+        img="/assets/mask.png"
+        />
       </div>
     </div>
   );

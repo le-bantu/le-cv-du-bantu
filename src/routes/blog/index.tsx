@@ -37,7 +37,9 @@ export default component$(() => {
       </div>
 
       <div class="mt-2">
-        <ContactMe />
+        <ContactMe 
+        img="/assets/mask-2.png"
+        />
       </div>
     </div>
   );

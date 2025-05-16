@@ -16,7 +16,7 @@ export const Footer = component$(() => {
         </a>
       </div>
       <div class="footer-text">
-        <p>&copy; 2025 Le Bantu. Tous droits réservés.</p>
+        <p>&copy; 2025 Yves Romuald Bahoken Imben (Le Bantu). Tous droits réservés.</p>
       </div>
       
     </footer>

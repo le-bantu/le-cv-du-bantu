@@ -14,7 +14,7 @@ export default component$(() => {
       <About />
       <Services />
       <Testimonials />
-      <ContactMe />
+      <ContactMe img="/assets/mask-3.png" />
     </section>
   );
 });

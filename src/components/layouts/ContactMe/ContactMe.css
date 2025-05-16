@@ -16,7 +16,7 @@
 }
 
 .contact__image {
-  @apply w-80 h-80 object-cover rounded-full;
+  @apply w-80 h-96 object-cover rounded-full;
 }
 
 .contact__image--bounce {

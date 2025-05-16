@@ -1,7 +1,11 @@
 import { component$, useSignal, $ } from "@builder.io/qwik";
 import "./ContactMe.css";
 
-export const ContactMe = component$(() => {
+interface ContactMeProps {
+  img: string;
+}
+
+export const ContactMe = component$(({img}: ContactMeProps) => {
   const showFireworks = useSignal(false);
 
   const triggerFireworks = $(() => {
@@ -24,7 +28,7 @@ export const ContactMe = component$(() => {
       <div class="contact__container">
         <div class="contact__image-container">
           <img
-            src="/assets/profile-bounce.png"
+            src={img}
             alt="Profile"
             class="contact__image contact__image--bounce"
           />

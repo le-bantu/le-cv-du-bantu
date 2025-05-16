@@ -1,0 +1,53 @@
+.contacts-banner__container__img-content {
+    @apply flex items-center mx-auto w-fit my-4;
+    .contacts-mignon {
+        @apply h-60 w-fit;
+       
+        animation: bounce 4s infinite ease-in-out;
+        
+    }
+}
+
+.contacts-banner__container__socials-content {
+
+    @apply flex justify-center gap-4;
+
+    .social-group {
+        @apply flex flex-row-reverse items-center gap-2 cursor-pointer transition-all;  
+
+        i {
+            @apply  duration-300 bg-secondary  text-white p-2 rounded-full;
+        }
+
+        span {
+            @apply text-secondary font-semibold;
+        }
+    }
+
+    .social-group:hover {
+        i {
+            @apply bg-brown;
+        }
+
+        span {
+            @apply text-brown;
+        }
+    }
+}
+
+
+@media (max-width: 780px) {
+ .contacts-banner__container__img-content {
+    @apply flex-col;
+
+    .contacts-mignon {
+        @apply h-40;
+    }
+
+    .contacts-portfolio {
+        @apply w-[95%] px-4;
+    }
+
+  }   
+}
+
