@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = component$(({ name, image, technologies, onClick$ }: ProjectCardProps) => {
   return (
-    <div class="project-card" onClick$={onClick$}>
+    <div class="project-card fade-in-top" onClick$={onClick$}>
       <div class="card-image-container ">
         <img src={image} alt={name} class="project-image" />
       </div>

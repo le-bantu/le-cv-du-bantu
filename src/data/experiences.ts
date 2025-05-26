@@ -5,7 +5,7 @@ export const experiences: ExperienceCardProps[] = [
     jobTitle: "Software Engineer",
     companyName: "Afriland First Bank",
     location: "Yaoundé, Cameroon",
-    date: "Oct 2023 – Present",
+    date: "Oct 2023 – April 2025",
     logo: "/assets/afb.png",
     description: [
       "Optimized the internal directory application using Spring Boot 3 and Angular 18, significantly reducing response time.",

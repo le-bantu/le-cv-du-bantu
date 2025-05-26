@@ -88,7 +88,7 @@ export class BlogService {
         const filtered = blogs.filter((blog) => {
           const matchKeyword = blog.title.toLowerCase().includes(keyword.toLowerCase());
           const matchCategory = category === "" || blog.category === category;
-          const matchTags = tags.length === 0 || tags.every((tag) => blog.tags.includes(tag));
+          const matchTags = tags.length === 0 || tags.some((tag) => blog.tags.includes(tag));
           return matchKeyword && matchCategory && matchTags;
         });
         resolve(filtered);

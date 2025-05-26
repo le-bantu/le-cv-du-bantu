@@ -1,4 +1,5 @@
 import { component$ } from '@builder.io/qwik';
+import { Link } from '@builder.io/qwik-city';
 
 interface Language {
   name: string;
@@ -8,7 +9,7 @@ interface Language {
 
 interface ContactCardProps {
   imageSrc: string;
-  statusText: string;
+  status: boolean;
   linkedinUrl: string;
   emailParts: string[];
   footerMessage: string;
@@ -18,10 +19,10 @@ interface ContactCardProps {
 
 export const ContactCard = component$((props: ContactCardProps) => {
   return (
-    <div class="flex flex-col-reverse md:flex-row md:items-center md:mx-auto md:max-w-[80%] gap-5 px-14 mt-12 h-fit">
+    <div class="flex w-[100%] flex-col-reverse md:flex-row md:items-center md:mx-auto md:max-w-[80%] gap-5 px-14 mt-12 h-fit">
       {/* Image */}
-      <div class="w-[27rem] border shadow-xl rounded-xl bounce-in-left">
-        <img src={props.imageSrc} width="100" height="190" class="rounded-lg w-full" alt="Contact illustration" />
+      <div class="max-md:hidden w-[27rem] h-[21rem] dark:border-slate-800 dark:border-2 overflow-hidden border shadow-xl rounded-xl bounce-in-left">
+        <img src={props.imageSrc} class="rounded-lg w-full object-cover" alt="Contact illustration" />
       </div>
 
       {/* Content */}
@@ -37,12 +38,19 @@ export const ContactCard = component$((props: ContactCardProps) => {
 
             { 
             
-            props.statusText && 
+            !props.status ?
               <div class="p-3 md:p-4 flex items-center bg-gray-100 md:bg-transparent rounded-t-lg md:rounded-none md:rounded-tl-lg md:border-b border-gray-300">
                 <div class="w-6 h-6 bg-red-300 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                   <div class="w-2.5 h-2.5 bg-red-600 rounded-full z-10"></div>
                 </div>
-                <div>{props.statusText}</div>
+                <div>Fully booked right now</div>
+              </div>
+              :
+              <div class="p-3 md:p-4 flex items-center bg-gray-100 md:bg-transparent rounded-t-lg md:rounded-none md:rounded-tl-lg md:border-b border-gray-300">
+                <div class="w-6 h-6 bg-green-300 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <div class="w-2.5 h-2.5 bg-green-600 rounded-full z-10"></div>
+                </div>
+                <div>Open to work</div>
               </div>
             }
 
@@ -57,7 +65,7 @@ export const ContactCard = component$((props: ContactCardProps) => {
 
               <div>
                 Or write me a letter:
-                <div class="text-lg mt-2 font-mono">
+                <div class="text-md font-medium mt-2 font-mono">
                   {props.emailParts.map((part, index) => (
                     <code key={index} class="mr-1">
                       {part}
@@ -68,13 +76,9 @@ export const ContactCard = component$((props: ContactCardProps) => {
 
               <div class="text-sm mt-3 md:mt-1">
                 See{' '}
-                <a href="/now" class="text-blue-600 underline">
-                  what I’m up to now
-                </a>{' '}
-                and{' '}
-                <a href="/ideas" class="text-blue-600 underline">
+                <Link href="/projects" class="text-blue-600 underline">
                   ideas I’d like to work on
-                </a>
+                </Link>
               </div>
             </div>
           </div>

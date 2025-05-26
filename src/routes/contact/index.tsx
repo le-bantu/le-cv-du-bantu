@@ -12,12 +12,12 @@ export default component$(() => {
       </div>
       <section class="p-6">
         <ContactCard
-          imageSrc="/assets/profil-me-3.jpg"
-          statusText="Fully booked right now"
+          imageSrc="/assets/profil-me-4.jpeg"
+          status={true}
           linkedinUrl="https://www.linkedin.com/in/yves-romuald-bahoken-710509226/"
-          emailParts={["hello", "at", "le-cv-du-bantu", "dot", "com"]}
+          emailParts={["hello", "at", "romualdimben", "@", "gmail.com"]}
           footerMessage="Do say hi!"
-          footerLink="https://youtu.be/Gb38t9ZnBhM"
+          footerLink="https://wa.me/237657970411"
           languages={[
             {
               name: "French",

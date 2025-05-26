@@ -24,7 +24,7 @@ export default component$(() => {
   return (
     <div class="pt-8 bg-slate-100 dark:bg-black">
       <div class="px-8">
-        <div class="fade-in-bottom">
+        <div class="fade-in-bottom relative z-20">
           <BlogFilter
             message="Découvrez nos derniers articles"
             imageUrl="/assets/background-4.png"
@@ -32,7 +32,7 @@ export default component$(() => {
           />
         </div>
 
-        <div class="py-8">
+        <div class="py-8 fade-in-top -z-20">
           <BlogList blogs={filteredBlogs.value} />
         </div>
       </div>

@@ -16,7 +16,7 @@ export const BlogList = component$(({ blogs }: BlogListProps) => {
   });
 
   return (
-    <div class={`blog-list ${animate.value ? 'blog-list--animated' : ''}`}>
+    <div class={`blog-list  ${animate.value ? 'blog-list--animated' : ''}`}>
       {blogs.length > 0 ? (
         blogs.map((blog) => <BlogCard key={blog.id} {...blog} />)
       ) : (

@@ -1,5 +1,5 @@
 .project-list {
-  @apply flex flex-wrap gap-8 py-4;
+  @apply flex justify-center flex-wrap gap-8 py-4;
   justify-items: center;
 }
 
@@ -9,7 +9,7 @@
   }
 }
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -18,8 +18,8 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
-.project-card {
+/* .project-card {
   animation: fadeIn 0.5s ease;
-}
+} */

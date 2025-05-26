@@ -12,21 +12,29 @@ export const ProjectList = component$(() => {
   const filteredProjects = useSignal<Project[]>(projects);
 
   const handleFilterChange = $((filters: any) => {
+    const typeFilter = filters.type.toLowerCase();
+
     filteredProjects.value = projects.filter((project: Project) => {
+      const projectType = project.type?.toLowerCase() ?? "unknown";
+
       return (
-        (filters.type === "all" || project.type === filters.type) &&
+        (typeFilter === "all" || projectType === typeFilter) &&
         project.name.toLowerCase().includes(filters.keyword.toLowerCase()) &&
         (filters.technologies.length === 0 ||
-          filters.technologies.every((tech: string) =>
+          filters.technologies.some((tech: string) =>
             project.technologies.includes(tech)
           ))
       );
     });
+
+    console.log("🔍 Filter type:", filters.type);
+    projects.forEach((p) => console.log(`→ ${p.name}: ${p.type}`));
+  
   });
 
   return (
     <div class="flex flex-col gap-10">
-      <div class="fade-in-bottom">
+      <div class="fade-in-bottom relative z-40">
         <ProjectFilter
           onFilterChange$={handleFilterChange}
           bannerImage="/assets/background-3.png"
@@ -35,9 +43,9 @@ export const ProjectList = component$(() => {
       </div>
 
       <div class="project-list">
-        {filteredProjects.value.map((project, index) => (
+        {filteredProjects.value.map((project) => (
           <ProjectCard
-            key={index}
+            key={project.id}
             name={project.name}
             image={project.image}
             technologies={project.technologies}
