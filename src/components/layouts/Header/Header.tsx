@@ -33,7 +33,7 @@ export const Header = component$(() => {
   });
 
   return (
-    <header class="header-container">
+    <header class="header-container fade-in-top fixed w-full z-50">
       <div class="logo">
         <img src="/assets/logo.png" alt="Logo" class="logo-image" />
         {/* <span class="logo-text">Le Bantu</span> */}

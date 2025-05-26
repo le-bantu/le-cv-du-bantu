@@ -1,29 +1,54 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { services } from "../../../data/services";
-import { ServiceCard } from "./ServiceCard";
-import "./Services.css";
+import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { services } from '~/data/services';
+import { ServiceCard } from './ServiceCard';
+import './Services.css';
 
 export const Services = component$(() => {
   const isVisible = useSignal(false);
+  const wrapperRef = useSignal<HTMLElement>();
 
   useVisibleTask$(() => {
-    isVisible.value = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (wrapperRef.value) {
+      observer.observe(wrapperRef.value);
+    }
   });
 
   return (
-    <section class={`services-section ${isVisible.value ? "fade-in" : ""}`}>
-      <h2 class="section-title">My Services</h2>
-      <p class="section-description">
-        I offer a wide range of services to help you achieve your digital goals. Explore my expertise.
-      </p>
-      <div class="services-wrapper">
+    <section class={`services-section`} >
+      <div  class={isVisible.value ? 'fade-in mx-12 mb-20 flex items-center gap-2 ' : 'fade-in mx-12 mb-20 flex items-center opacity-0'}>
+        <h2 class="font-semibold text-2xl sm:text-2xl uppercase m-0 whitespace-nowrap">
+          They trusted me
+        </h2>
+        <div class="border-t border-gray-300 w-full mx-12"></div>
+      </div>
+
+      <div ref={wrapperRef} class="services-wrapper">
         {services.map((service, index) => (
-          <ServiceCard
+          <div
             key={index}
-            icon={service.icon}
-            title={service.title}
-            description={service.description}
-          />
+            class={isVisible.value ? 'bounce-in-top' : 'opacity-0'}
+            style={{
+              animationDelay: `${index * 100}ms`,
+              animationDuration: '1.2s',
+              animationFillMode: 'both',
+            }}
+          >
+            <ServiceCard
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+            />
+          </div>
         ))}
       </div>
     </section>

@@ -5,7 +5,9 @@ import { InfoCard } from '../InfoCard/InfoCard';
 
 export const Info = component$(() => {
   return (
-    <div class="info flex flex-col items-center gap-4 rounded-xl h-fit border border-gray-100 bg-white dark:bg-[#1a1a1a] p-4 sticky top-2 lg:w-1/4">
+    <div 
+    style={{animationDelay: '400ms'}}
+    class="slide-in-blur-right info flex flex-col items-center gap-4 rounded-xl h-fit border border-gray-100 bg-white dark:bg-[#1a1a1a] p-4 sticky top-2 lg:w-1/4">
       <div class="infos-cards flex flex-col gap-2">
         <InfoCard icon="fas fa-phone" title="Phone Number" subtitle="+237 670 506 569" />
         <InfoCard icon="fab fa-github" title="GitHub" subtitle="https://github.com/Bahoken" />

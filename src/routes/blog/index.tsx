@@ -24,22 +24,21 @@ export default component$(() => {
   return (
     <div class="pt-8 bg-slate-100 dark:bg-black">
       <div class="px-8">
-        <BlogFilter
-          message="Découvrez nos derniers articles"
-          imageUrl="/assets/background-4.png"
-          onFilterChange$={handleFilterChange}
-        />
+        <div class="fade-in-bottom">
+          <BlogFilter
+            message="Découvrez nos derniers articles"
+            imageUrl="/assets/background-4.png"
+            onFilterChange$={handleFilterChange}
+          />
+        </div>
 
         <div class="py-8">
           <BlogList blogs={filteredBlogs.value} />
         </div>
-
       </div>
 
       <div class="mt-2">
-        <ContactMe 
-        img="/assets/mask-2.png"
-        />
+        <ContactMe img="/assets/mask-2.png" />
       </div>
     </div>
   );

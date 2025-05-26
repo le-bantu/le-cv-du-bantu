@@ -29,12 +29,12 @@ export const ToolCard = component$(({ img, name, index }: ToolCardProps) => {
 
   useStylesScoped$(`
     .slide-in-elliptic-top-fwd {
-      animation: slideInEllipticTopFwd 0.5s ease-out both;
+      animation: slideInEllipticTopFwd 0.4s ease-out both;
     }
 
     @keyframes slideInEllipticTopFwd {
       0% {
-        transform: translateY(-600px) rotateX(-30deg) scale(0);
+        transform: translateY(-100px) rotateX(-30deg) scale(0);
         transform-origin: 50% 100%;
         opacity: 0;
       }

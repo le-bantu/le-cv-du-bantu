@@ -1,7 +1,6 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { heroData } from "../../../data/heroData";
 import "./Hero.css";
-import { TextGenerateEffect } from "~/components/ui/Text/TextGenerateEffect";
 
 export const Hero = component$(() => {
   const isVisible = useSignal(false);
@@ -11,7 +10,7 @@ export const Hero = component$(() => {
   });
 
   return (
-    <section class={`hero-container ${isVisible.value ? "fade-in" : ""}`}>
+    <section class={`hero-container ${isVisible.value ? "fade-in-top" : ""}`}>
       {/* Nouvelle div pour le fond */}
       <div
         class="background-pattern"
@@ -42,8 +41,10 @@ export const Hero = component$(() => {
           </div>
         </div>
 
-        <div class="hero-content">
-          <div class="text-section">
+        <div
+          class="hero-content">
+          <div 
+          class="text-section fade-in-bottom">
             <h5>
               Hello, <span class="text-primary">my name is</span>
             </h5>
@@ -57,16 +58,16 @@ export const Hero = component$(() => {
             </h1>
             <h3 class="font-semibold">{heroData.profession}</h3>
             
-            {/* <p class="font-semibold text-gray-700 text-8xl">
+            <p class="font-semibold text-gray-700 text-8xl ">
               {heroData.description}
-            </p> */}
+            </p>
 
-            <TextGenerateEffect 
+            {/* <TextGenerateEffect 
               words={heroData.description}
               class="font-semibold text-gray-700 text-2xl pb-4"
               typingSpeed={40}
               cursorColor="text-primary-500"
-            />
+            /> */}
 
             <div class="btn-group flex gap-2">
               <a href="/contact" class="btn-primary w-fit">

@@ -5,7 +5,7 @@ import { ProjectCard } from "../ProjectCard/ProjectCard";
 import { ProjectModal } from "../ProjectModal/ProjectModal";
 import { ProjectFilter } from "../ProjectFilter/ProjectFilter";
 
-import './ProjectList.css';
+import "./ProjectList.css";
 
 export const ProjectList = component$(() => {
   const selectedProject = useSignal<Project | null>(null);
@@ -26,11 +26,14 @@ export const ProjectList = component$(() => {
 
   return (
     <div class="flex flex-col gap-10">
-      <ProjectFilter 
-        onFilterChange$={handleFilterChange} 
-        bannerImage="/assets/background-3.png"
-        bannerMessage="Mes projets"
-      />
+      <div class="fade-in-bottom">
+        <ProjectFilter
+          onFilterChange$={handleFilterChange}
+          bannerImage="/assets/background-3.png"
+          bannerMessage="Mes projets"
+        />
+      </div>
+
       <div class="project-list">
         {filteredProjects.value.map((project, index) => (
           <ProjectCard

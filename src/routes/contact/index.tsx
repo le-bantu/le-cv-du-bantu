@@ -7,7 +7,7 @@ import { LetsWorkTogether } from "~/components/ui/Contacts/LetsWork/LetsWorkToge
 export default component$(() => {
   return (
     <div>
-      <div class="fade-in-top">
+      <div class="fade-in-bottom">
         <ContactBanner />
       </div>
       <section class="p-6">

@@ -22,7 +22,7 @@ export const About = component$(() => {
           architecto natus eaque ullam sit consequuntur amet error, fugiat
           repellendus nam! Voluptates, reprehenderit?
         </p>
-        <p class="bg-deepbrown dark:bg-gray-900 opacity-90 text-center px-2 py-4 rounded-lg text-white">
+        <p class="bg-white dark:bg-opacity-20 border shadow dark:bg-gray-800 text-center px-2 py-4 rounded-lg dark:text-white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam porro
           corporis ea, possimus ex perspiciatis iure, vitae debitis obcaecati
           fugiat laboriosam dolore assumenda magni eum a voluptatem expedita

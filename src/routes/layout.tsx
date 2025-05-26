@@ -6,7 +6,7 @@ export default component$(() => {
   return (
     <div class="min-h-screen flex flex-col">
       <Header />
-      <main class="flex-grow">
+      <main class="flex-grow mt-[3.5rem]">
         <Slot />
       </main>
       <Footer />

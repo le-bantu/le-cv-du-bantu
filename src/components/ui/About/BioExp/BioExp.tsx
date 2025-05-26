@@ -6,7 +6,7 @@ import { Exp } from '../Exp/Exp';
 
 export const BioExp = component$(() => {
   return (
-    <div class="bio-exp flex flex-col lg:w-3/4 gap-4">
+    <div class="bio-exp flex flex-col lg:w-3/4 gap-4 slide-in-blur-left">
       <BioSkills bio="Passionné par le développement fullstack." skills={['JavaScript', 'PHP', 'Java', 'Tailwind', 'Qwik']} />
       <Exp />
     </div>
