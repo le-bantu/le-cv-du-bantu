@@ -2,24 +2,20 @@
 
 import { component$ } from '@builder.io/qwik';
 import { ExperienceCard } from '../ExperienceCard/ExperienceCard';
+import type { ExperienceCardProps } from '../ExperienceCard/ExperienceCard';
 import './Exp.css';
 
-export const Exp = component$(() => {
+interface ExpProps {
+  experiences: ExperienceCardProps[];
+}
+
+export const Exp = component$((props: ExpProps) => {
   return (
     <div class="exp flex flex-col gap-4 p-4 bg-white border border-gray-100 dark:bg-[#1a1a1a] rounded-xl">
       <h2 class="text-lg font-semibold">Expériences</h2>
-      <ExperienceCard 
-        jobTitle="Développeur Fullstack" 
-        location="Yaoundé, Cameroun" 
-        date="2023 - Présent" 
-        description="Développement d'applications web performantes et évolutives avec des technologies modernes."
-      />
-      <ExperienceCard 
-        jobTitle="Développeur Fullstack" 
-        location="Yaoundé, Cameroun" 
-        date="2023 - Présent" 
-        description="Développement d'applications web performantes et évolutives avec des technologies modernes."
-      />
+      {props.experiences.map((exp, index) => (
+        <ExperienceCard key={index} {...exp} />
+      ))}
     </div>
   );
 });
