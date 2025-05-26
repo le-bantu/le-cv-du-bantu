@@ -47,6 +47,7 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
+    "@lordicon/element": "^1.11.0",
     "framer-motion": "^12.11.0",
     "highlight.js": "^11.11.1",
     "marked": "^15.0.11",

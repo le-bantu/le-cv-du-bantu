@@ -11,28 +11,30 @@ export const About = component$(() => {
         <img src="/assets/about-3.png" alt="about" />
       </div>
 
-      <div class="about--text-content">
-        <h1 class="text-3xl font-bold">
+      <div class="about--text-content font-semibold">
+        <h1 class="text-4xl text-gray font-bold">
           Meet &nbsp;
           <span class="about--text-name">Yves Bahoken</span>
         </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          molestiae soluta aperiam nemo dignissimos alias cupiditate provident
-          architecto natus eaque ullam sit consequuntur amet error, fugiat
-          repellendus nam! Voluptates, reprehenderit?
+        <p class="text-slate-800 dark:text-white">
+          I'm a Full-Stack Software Engineer with 5+ years of experience
+          crafting modern web applications that are fast, reliable, and secure.
+          I started with PHP and quickly expanded into Java, JavaScript, and a
+          wide range of frameworks like Laravel, Symfony, Spring Boot, Angular,
+          and React.
         </p>
         <p class="bg-white dark:bg-opacity-20 border shadow dark:bg-gray-800 text-center px-2 py-4 rounded-lg dark:text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam porro
-          corporis ea, possimus ex perspiciatis iure, vitae debitis obcaecati
-          fugiat laboriosam dolore assumenda magni eum a voluptatem expedita
-          dolores provident.
+          From designing reusable frontend components to building robust backend
+          APIs, I enjoy solving real-world problems through clean code and
+          thoughtful architecture. My work spans industries like banking and
+          fintech, where performance, security, and user experience are
+          critical.
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-          tempora similique consequatur eos cupiditate animi quos esse culpa
-          reprehenderit consequuntur commodi? Ipsam, excepturi eos eveniet sunt
-          earum quis atque obcaecati.
+        <p class="text-slate-800 dark:text-white">
+          I'm always learning and exploring new tools, whether it's DevOps,
+          cloud platforms, or design systems. For me, engineering is about
+          building things that matter — and doing it with passion, precision,
+          and purpose.
         </p>
       </div>
     </div>

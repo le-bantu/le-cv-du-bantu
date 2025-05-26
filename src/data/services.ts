@@ -1,23 +1,22 @@
 export const services = [
-    {
-      icon: "/assets/dev.png",
-      title: "Web Development",
-      description: "Build fast, responsive websites and web applications using modern technologies.",
-    },
-    {
-      icon: "/assets/mobile.png",
-      title: "Mobile App Development",
-      description: "Create mobile apps with smooth user experiences on both Android and iOS.",
-    },
-    {
-      icon: "/assets/devops.png",
-      title: "Devops",
-      description: "Leverage cloud technologies to build scalable and reliable solutions.",
-    },
-    {
-      icon: "/assets/ui-ux.png",
-      title: "UI/UX Design",
-      description: "Design intuitive and engaging interfaces that enhance user experience.",
-    },
-  ];
-  
+  {
+    icon: "/assets/dev.png",
+    title: "Web Development",
+    description: "Develop fast, responsive, and secure websites and web applications using modern frameworks and best practices.",
+  },
+  {
+    icon: "/assets/mobile.png",
+    title: "Mobile App Development",
+    description: "Build cross-platform mobile applications with smooth performance and a consistent user experience on both Android and iOS.",
+  },
+  {
+    icon: "/assets/devops.png",
+    title: "DevOps",
+    description: "Implement CI/CD pipelines and cloud infrastructure to ensure scalable, automated, and reliable software delivery.",
+  },
+  {
+    icon: "/assets/ui-ux.png",
+    title: "UI/UX Design",
+    description: "Design clean, user-friendly interfaces that prioritize usability, accessibility, and visual appeal.",
+  },
+];

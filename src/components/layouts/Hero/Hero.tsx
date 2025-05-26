@@ -1,6 +1,7 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { heroData } from "../../../data/heroData";
 import "./Hero.css";
+import { Link } from "@builder.io/qwik-city";
 
 export const Hero = component$(() => {
   const isVisible = useSignal(false);
@@ -35,16 +36,14 @@ export const Hero = component$(() => {
               src="/assets/arrow.png"
               alt=""
               srcset=""
-              class="dark:filter dark:invert"
+              class="dark:filter dark:invert bounce-infinite mt-2"
             />
             {/* <i class="fas fa-arrow-down"></i> */}
           </div>
         </div>
 
-        <div
-          class="hero-content">
-          <div 
-          class="text-section fade-in-bottom">
+        <div class="hero-content">
+          <div class="text-section fade-in-bottom">
             <h5>
               Hello, <span class="text-primary">my name is</span>
             </h5>
@@ -57,7 +56,7 @@ export const Hero = component$(() => {
               </span>
             </h1>
             <h3 class="font-semibold">{heroData.profession}</h3>
-            
+
             <p class="font-semibold text-gray-700 text-8xl ">
               {heroData.description}
             </p>
@@ -69,11 +68,30 @@ export const Hero = component$(() => {
               cursorColor="text-primary-500"
             /> */}
 
-            <div class="btn-group flex gap-2">
-              <a href="/contact" class="btn-primary w-fit">
-                Hire Me Now
-              </a>
-              <a href="/contact" class="bg-white border px-4 py-2 dark:text-black rounded-md hover:shadow-2xl font-semmibold w-fit">
+            <div class="btn-group flex gap-2 items-center">
+              <Link
+                href="/contact"
+                class="btn-primary w-fit flex items-center gap-2"
+              >
+                <lord-icon
+                  src="https://cdn.lordicon.com/wwsllqpi.json"
+                  trigger="hover"
+                  colors="primary:#ffffff"
+                  style={{ width: "24px", height: "24px" }}
+                />
+                Talk with me
+              </Link>
+              <a
+                href="/cv.pdf"
+                download
+                class="bg-white border px-4 py-2 dark:text-black rounded-md hover:shadow-2xl font-semibold w-fit flex items-center gap-2"
+              >
+                <lord-icon
+                  src="https://cdn.lordicon.com/kydcudfv.json" // Icône "download"
+                  trigger="hover"
+                  colors="primary:#121331"
+                  style={{ width: "24px", height: "24px" }}
+                />
                 Curriculum
               </a>
             </div>

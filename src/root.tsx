@@ -34,6 +34,7 @@ export default component$(() => {
       <body lang="en">
         <RouterOutlet />
         {!isDev && <ServiceWorkerRegister />}
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
       </body>
     </QwikCityProvider>
   );

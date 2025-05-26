@@ -288,3 +288,19 @@
 .slide-in-blur {
   animation-name: slide-in-blur;
 }
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in-out;
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: ease-in-out;
+  }
+}
+
+.bounce-infinite {
+  animation: bounce 1s infinite;
+}
