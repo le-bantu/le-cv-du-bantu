@@ -6,20 +6,44 @@ import { BlogService } from "~/services/BlogService";
 import { Blog } from "~/utils/iBlog";
 
 export default component$(() => {
-  const filteredBlogs = useSignal<Blog[]>([]);
+  const blogs = useSignal<Blog[]>([]);
+  const currentPage = useSignal(1);
+  const totalPages = useSignal(1);
 
-  // Charger tous les articles au démarrage
-  useVisibleTask$(async () => {
-    const allBlogs = await BlogService.getAllBlogs();
-    filteredBlogs.value = allBlogs;
-  });
+  const keyword = useSignal("");
+  const category = useSignal("");
+  const tags = useSignal<string[]>([]);
 
-  const handleFilterChange = $(
-    async (keyword: string, category: string, tags: string[]) => {
-      const result = await BlogService.filterBlogs(keyword, category, tags);
-      filteredBlogs.value = result;
+  const fetchFilteredBlogs = $(
+    async (
+      kw: string = "",
+      cat: string = "",
+      tg: string[] = [],
+      page: number = 1
+    ) => {
+      const result = await BlogService.filterBlogs(kw, cat, tg, page);
+      blogs.value = result.data;
+      currentPage.value = result.current_page;
+      totalPages.value = result.total_pages;
     }
   );
+
+  const handleFilterChange = $(
+    async (kw: string, cat: string, tg: string[]) => {
+      keyword.value = kw;
+      category.value = cat;
+      tags.value = tg;
+      await fetchFilteredBlogs(kw, cat, tg, 1);
+    }
+  );
+
+  const handlePageChange = $(async (page: number) => {
+    await fetchFilteredBlogs(keyword.value, category.value, tags.value, page);
+  });
+
+  useVisibleTask$(async () => {
+    await fetchFilteredBlogs();
+  });
 
   return (
     <div class="pt-8 bg-slate-100 dark:bg-black">
@@ -33,7 +57,12 @@ export default component$(() => {
         </div>
 
         <div class="py-8 fade-in-top -z-20">
-          <BlogList blogs={filteredBlogs.value} />
+          <BlogList
+            blogs={blogs.value}
+            currentPage={currentPage.value}
+            totalPages={totalPages.value}
+            onPageChange$={handlePageChange}
+          />
         </div>
       </div>
 

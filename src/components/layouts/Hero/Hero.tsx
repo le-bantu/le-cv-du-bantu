@@ -48,10 +48,10 @@ export const Hero = component$(() => {
               Hello, <span class="text-primary">my name is</span>
             </h5>
             <h1>
-              <span class="first font-lover text-with-border">
+              <span class="font-lover text-with-border text-white text-6xl">
                 {heroData.firstName}
               </span>{" "}
-              <span class="last font-lover text-with-border">
+              <span class="font-lover text-with-border text-white text-6xl">
                 {heroData.lastName}
               </span>
             </h1>

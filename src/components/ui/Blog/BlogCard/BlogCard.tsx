@@ -7,8 +7,8 @@ export const BlogCard = component$((props: Blog) => {
     <a href={`/blog/${props.slug}-${props.id}`} class="blog-card">
       <img src={props.image} alt={props.title} class="blog-card__image" />
       <div class="blog-card__content">
-        <h3 class="blog-card__title">{props.title}</h3>
-        <p class="blog-card__excerpt">{props.excerpt}</p>
+        <h3 class="blog-card__title truncate-single">{props.title}</h3>
+        <p class="blog-card__excerpt truncate-multiline">{props.excerpt}</p>
         <span class="blog-card__meta">
           <span class="flex gap-2 items-center">
             <i class="fas fa-user"></i>

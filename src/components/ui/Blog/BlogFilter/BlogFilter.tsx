@@ -32,6 +32,7 @@ export const BlogFilter = component$(
       tags.value = await BlogService.getTags();
     });
 
+    
     // Gérer les changements de filtre
     const handleFilterChange = $(() => {
       onFilterChange$(
@@ -39,6 +40,16 @@ export const BlogFilter = component$(
         selectedCategory.value,
         selectedTags.value
       );
+
+      console.log(" :: key :: ", keyword.value);
+      console.log(" :: key :: ", keyword.value);
+    });
+
+    const handleKeywordInput = $((event: Event) => {
+      const input = event.target as HTMLInputElement;
+      keyword.value = input.value;
+      console.log("keyword modifié :", keyword.value);
+      handleFilterChange();
     });
 
     // Gérer la sélection/désélection des tags
@@ -87,7 +98,7 @@ export const BlogFilter = component$(
               class="blog-filter__input"
               placeholder="Rechercher un article..."
               bind:value={keyword}
-              onInput$={handleFilterChange}
+              onInput$={handleKeywordInput}
             />
             <span class="blog-filter__icon">
               <i class="fas fa-search"></i>

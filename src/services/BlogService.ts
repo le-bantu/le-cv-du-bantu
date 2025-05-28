@@ -1,98 +1,72 @@
-import { blogs } from "../data/blogs";
-import { comments } from "../data/comments";
-import { CommentType } from "~/utils/iComment";
+import { base_url } from "~/environment/env.prod";
 import { Blog } from "~/utils/iBlog";
 
-export class BlogService {
-  // Récupérer tous les articles
-  static async getAllBlogs(): Promise<Blog[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(blogs);
-      }, 300);
-    });
-  }
-
-  // Récupérer un article par son ID
-  static async getBlogById(id: number): Promise<Blog | undefined> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const blog = blogs.find((b) => b.id === id);
-        resolve(blog);
-      }, 300);
-    });
-  }
-
-  // Récupérer les articles récents
-  static async getRecentBlogs(limit: number = 3): Promise<Blog[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(blogs.slice(0, limit));
-      }, 300);
-    });
-  }
-
-  // Récupérer les articles similaires par catégorie
-  static async getSimilarBlogs(category: string, excludeId: number): Promise<Blog[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(blogs.filter((blog) => blog.category === category && blog.id !== excludeId));
-      }, 300);
-    });
-  }
-
-  // Récupérer les commentaires d'un article
-  static async getComments(blogId: number): Promise<CommentType[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(comments);
-        console.log(':: article ::', blogId);
-      }, 300);
-    });
-  }
-
-  // Ajouter un commentaire
-  static async addComment(blogId: number, comment: CommentType): Promise<void> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        comments.push(comment);
-        resolve();
-      }, 200);
-    });
-  }
-
-  // Récupérer les catégories uniques
-  static async getCategories(): Promise<string[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const categories = [...new Set(blogs.map((blog) => blog.category))];
-        resolve(categories);
-      }, 200);
-    });
-  }
-
-  // Récupérer les tags uniques
-  static async getTags(): Promise<string[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const tags = [...new Set(blogs.flatMap((blog) => blog.tags))];
-        resolve(tags);
-      }, 200);
-    });
-  }
-
-  // Filtrer les articles par mot-clé, catégorie et tags
-  static async filterBlogs(keyword: string, category: string, tags: string[]): Promise<Blog[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const filtered = blogs.filter((blog) => {
-          const matchKeyword = blog.title.toLowerCase().includes(keyword.toLowerCase());
-          const matchCategory = category === "" || blog.category === category;
-          const matchTags = tags.length === 0 || tags.some((tag) => blog.tags.includes(tag));
-          return matchKeyword && matchCategory && matchTags;
-        });
-        resolve(filtered);
-      }, 300);
-    });
-  }
+export interface PaginatedBlogs {
+  data: Blog[];
+  current_page: number;
+  total_pages: number;
 }
+
+export const BlogService = {
+  async getAllBlogs(): Promise<PaginatedBlogs> {
+    // Appel simulé à une API REST paginée
+    const res = await fetch(`${base_url}/blogs?page=1`);
+    const json = await res.json();
+
+    return {
+      data: json.data,
+      current_page: json.current_page,
+      total_pages: json.last_page,
+    };
+  },
+
+
+  async getBlogById(id: number): Promise<Blog> {
+    const res = await fetch(`${base_url}/blogs/${id}`);
+    if (!res.ok) {
+      throw new Error("Erreur lors de la récupération de l'article");
+    }
+    return await res.json();
+  },
+
+
+  async filterBlogs(
+    keyword: string,
+    category: string,
+    tags: string[],
+    page: number = 1
+  ): Promise<PaginatedBlogs> {
+    const params = new URLSearchParams();
+    if (keyword) params.append("keyword", keyword); // <-- ici
+    if (category) params.append("category", category);
+    if (tags.length) params.append("tags", tags.join(","));
+    params.append("page", String(page));
+
+    const res = await fetch(`${base_url}/blogs?${params.toString()}`);
+    const json = await res.json();
+
+    return {
+      data: json.data,
+      current_page: json.current_page,
+      total_pages: json.last_page,
+    };
+  },
+
+
+  async getCategories(): Promise<string[]> {
+    const res = await fetch(`${base_url}/blogs/blog-categories`);
+    return await res.json();
+  },
+
+  async getTags(): Promise<string[]> {
+    const res = await fetch(`${base_url}/blogs/blog-tags`);
+    return await res.json();
+  }, 
+
+  async getSimilarArticles(blogId: number): Promise<Blog[]> {
+    const res = await fetch(`${base_url}/blogs/${blogId}/similar`);
+    if (!res.ok) throw new Error("Impossible de récupérer les articles similaires.");
+    return await res.json();
+  },
+
+};

@@ -46,6 +46,20 @@
   font-size: 0.875rem;
 }
 
+.truncate-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* nombre de lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-single {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* nombre de lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @media (prefers-color-scheme: dark) {
   .blog-card {
     @apply bg-deepbrown;
