@@ -47,7 +47,7 @@ export const Hero = component$(() => {
             <h5>
               Hello, <span class="text-primary">my name is</span>
             </h5>
-            <h1>
+            <h1 class="px-4 py-1 w-fit -rotate-1 md:-ml-4 bg-secondary rounded-xl max-md:bg-white max-md:dark:bg-black">
               <span class="font-lover text-with-border text-white text-6xl">
                 {heroData.firstName}
               </span>{" "}
