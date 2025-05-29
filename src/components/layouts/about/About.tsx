@@ -11,7 +11,7 @@ export const About = component$(() => {
         <img
           src="/assets/about-3.webp"
           alt="Illustration représentant le développeur"
-          loading="eager"
+          loading="lazy"
           decoding="async"
         />
       </div>

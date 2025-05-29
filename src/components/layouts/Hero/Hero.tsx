@@ -43,7 +43,7 @@ export const Hero = component$(() => {
               src="/assets/arrow.webp"
               alt="Flèche de défilement"
               class="dark:filter dark:invert bounce-infinite mt-2"
-              loading="eager"
+              loading="lazy"
               decoding="async"
             />
           </div>
@@ -101,7 +101,7 @@ export const Hero = component$(() => {
               src={heroData.image}
               alt="Portrait de Yves Romuald Bahoken Imben"
               class="profile-image"
-              loading="eager"
+              loading="lazy"
               decoding="async"
             />
           </div>

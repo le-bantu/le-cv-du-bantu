@@ -62,7 +62,7 @@ export const SkillCard = component$(({ img, name, index }: SkillCardProps) => {
         <img
           src={img}
           alt={name}
-          loading="eager"
+          loading="lazy"
           decoding="async"
           class="w-10 h-10 object-contain"
         />
