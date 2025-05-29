@@ -73,7 +73,7 @@ export const WorkWithMe = component$(() => {
               <img
                 src={isDark.value ? company.logoDark : company.logoLight}
                 alt={`Logo de ${company.name}`}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 class="logo"
               />
