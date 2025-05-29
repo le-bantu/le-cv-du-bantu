@@ -28,9 +28,9 @@ export const ContactBanner = component$(() => {
     <>
       <div class="contacts-banner__container">
         <div class="contacts-banner__container__img-content">
-          <img src="/assets/mignon-1.png" alt="mignon" class="contacts-mignon" />
+          <img src="/assets/mignon-1.webp" alt="mignon" class="contacts-mignon" />
           <img
-            src={isDarkMode.value ? '/assets/portfolio-n.png' : '/assets/portfolio-l.png'}
+            src={isDarkMode.value ? '/assets/portfolio-n.webp' : '/assets/portfolio-l.webp'}
             alt="portfolio"
             class="contacts-portfolio"
           />

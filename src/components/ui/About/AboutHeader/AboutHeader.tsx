@@ -9,12 +9,12 @@ export const AboutHeader = component$(() => {
       {/* Groupe présentation image */}
       <div class="about-header__banner relative">
         <img
-          src="/assets/background-6.png"
+          src="/assets/background-6.webp"
           alt="Banner"
           class="w-full h-56 object-cover rounded-xl"
         />
         <img
-          src="/assets/profil-me-2.jpg"
+          src="/assets/profil-me-2.webp"
           alt="Profile"
           class="about-header__profile absolute object-cover bottom-[-60px] left-8 w-36 h-36 rounded-full border-8 shadow-md border-white"
         />

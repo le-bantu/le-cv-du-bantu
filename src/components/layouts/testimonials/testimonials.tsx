@@ -1,29 +1,29 @@
 import { component$ } from "@builder.io/qwik";
 import { AnimatedTestimonials } from "~/components/ui/Animated/AnimatedTestimonials";
 
-export const Testimonials = component$(() => {
-  const testimonials = [
-    {
-      quote:
-        "Ce produit a changé ma vie ! La simplicité et l'efficacité sont au rendez-vous.",
-      name: "Jean Dupont",
-      designation: "CEO de StartUp X",
-      src: "/assets/profil-1.png",
-    },
-    {
-      quote: "Je recommande vivement cette solution à tous les entrepreneurs.",
-      name: "Marie Curie",
-      designation: "Fondatrice de TechLab",
-      src: "/assets/profil-3.png",
-    },
-    {
-      quote: "L'interface est fluide et l'ergonomie est impressionnante.",
-      name: "Koffi Annan",
-      designation: "Développeur Fullstack",
-      src: "/assets/profil-2.png",
-    },
-  ];
+const testimonialsData = [
+  {
+    quote:
+      "Ce produit a changé ma vie ! La simplicité et l'efficacité sont au rendez-vous.",
+    name: "Jean Dupont",
+    designation: "CEO de StartUp X",
+    src: "/assets/profil-1.webp",
+  },
+  {
+    quote: "Je recommande vivement cette solution à tous les entrepreneurs.",
+    name: "Marie Curie",
+    designation: "Fondatrice de TechLab",
+    src: "/assets/profil-3.webp",
+  },
+  {
+    quote: "L'interface est fluide et l'ergonomie est impressionnante.",
+    name: "Koffi Annan",
+    designation: "Développeur Fullstack",
+    src: "/assets/profil-2.webp",
+  },
+];
 
+export const Testimonials = component$(() => {
   return (
     <div class="p-8 w-full bg-slate-100 dark:bg-black">
       <div class="flex flex-col text-center">
@@ -40,7 +40,7 @@ export const Testimonials = component$(() => {
           collaboration:
         </p>
       </div>
-      <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+      <AnimatedTestimonials testimonials={testimonialsData} autoplay={true} />
     </div>
   );
 });

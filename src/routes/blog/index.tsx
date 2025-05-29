@@ -51,7 +51,7 @@ export default component$(() => {
         <div class="fade-in-bottom relative z-20">
           <BlogFilter
             message="Découvrez nos derniers articles"
-            imageUrl="/assets/background-4.png"
+            imageUrl="/assets/background-4.webp"
             onFilterChange$={handleFilterChange}
           />
         </div>
@@ -67,7 +67,7 @@ export default component$(() => {
       </div>
 
       <div class="mt-2">
-        <ContactMe img="/assets/mask-2.png" />
+        <ContactMe img="/assets/mask-2.webp" />
       </div>
     </div>
   );

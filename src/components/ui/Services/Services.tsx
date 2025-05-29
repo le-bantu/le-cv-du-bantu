@@ -21,12 +21,23 @@ export const Services = component$(() => {
     if (wrapperRef.value) {
       observer.observe(wrapperRef.value);
     }
+
+    return () => observer.disconnect(); // nettoyage propre
   });
 
   return (
-    <section class={`services-section`} >
-      <div  class={isVisible.value ? 'fade-in mx-12 mb-20 flex items-center gap-2 ' : 'fade-in mx-12 mb-20 flex items-center opacity-0'}>
-        <h2 class="font-semibold text-2xl sm:text-2xl uppercase m-0 whitespace-nowrap">
+    <section class="services-section" aria-labelledby="services-title">
+      <div
+        class={
+          isVisible.value
+            ? 'fade-in mx-12 mb-20 flex items-center gap-2'
+            : 'fade-in mx-12 mb-20 flex items-center opacity-0'
+        }
+      >
+        <h2
+          id="services-title"
+          class="font-semibold text-2xl sm:text-2xl uppercase m-0 whitespace-nowrap"
+        >
           They trusted me
         </h2>
         <div class="border-t border-gray-300 w-full mx-12"></div>

@@ -4,30 +4,35 @@ import { navLinks } from "../../../data/navLinks";
 import "./Header.css";
 
 export const Header = component$(() => {
-
   const loc = useLocation();
-
   const isMenuOpen = useSignal(false);
   const isDarkMode = useSignal(false);
 
-
-  // Charger le thème depuis le localStorage au chargement
   useVisibleTask$(() => {
-    const storedTheme = localStorage.getItem("theme");
-    isDarkMode.value = storedTheme === "dark";
-    document.documentElement.classList.toggle("dark", isDarkMode.value);
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem("theme");
+      isDarkMode.value = storedTheme === "dark";
+
+      const root = document.documentElement;
+      if (isDarkMode.value) {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
+    }
   });
 
-  // Fonction de bascule du thème (doit être un QRL)
   const toggleTheme = $(() => {
     isDarkMode.value = !isDarkMode.value;
     const theme = isDarkMode.value ? "dark" : "light";
-    document.documentElement.classList.toggle("dark", isDarkMode.value);
-    console.log("current path", loc.url.pathname);
-    localStorage.setItem("theme", theme);
+
+    if (typeof window !== 'undefined') {
+      const root = document.documentElement;
+      root.classList.toggle("dark", isDarkMode.value);
+      localStorage.setItem("theme", theme);
+    }
   });
 
-  // Gestion de l'ouverture/fermeture du menu
   const toggleMenu = $(() => {
     isMenuOpen.value = !isMenuOpen.value;
   });
@@ -35,8 +40,7 @@ export const Header = component$(() => {
   return (
     <header class="header-container fade-in-top fixed w-full z-50">
       <div class="logo">
-        <img src="/assets/logo.png" alt="Logo" class="logo-image" />
-        {/* <span class="logo-text">Le Bantu</span> */}
+        <img src="/assets/logo.webp" alt="Logo" class="logo-image" />
       </div>
 
       <nav class={`nav-links ${isMenuOpen.value ? "open" : "close"}`}>
@@ -53,12 +57,20 @@ export const Header = component$(() => {
       </nav>
 
       <div class="actions">
-        <div class="theme-toggle" onClick$={toggleTheme}>
+        <button
+          class="theme-toggle"
+          onClick$={toggleTheme}
+          aria-label="Toggle dark mode"
+        >
           <div class={`toggle-slider ${isDarkMode.value ? "dark" : "light"}`}>
             {isDarkMode.value ? "🌙" : "☀️"}
           </div>
-        </div>
-        <button class="menu-toggle" onClick$={toggleMenu}>
+        </button>
+        <button
+          class="menu-toggle"
+          onClick$={toggleMenu}
+          aria-label="Toggle menu"
+        >
           ☰
         </button>
       </div>

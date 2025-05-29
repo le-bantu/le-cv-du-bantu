@@ -10,7 +10,7 @@ export default component$(() => {
         <AboutHeader />
         <AboutBody />
       </div>
-      <ContactMe img="/assets/mask.png" />
+      <ContactMe img="/assets/mask.webp" />
     </div>
   );
 });

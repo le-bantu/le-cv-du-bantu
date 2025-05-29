@@ -6,7 +6,7 @@ export const experiences: ExperienceCardProps[] = [
     companyName: "Afriland First Bank",
     location: "Yaoundé, Cameroon",
     date: "Oct 2023 – April 2025",
-    logo: "/assets/afb.png",
+    logo: "/assets/afb.webp",
     description: [
       "Optimized the internal directory application using Spring Boot 3 and Angular 18, significantly reducing response time.",
       "Designed user interfaces for the intranet (INTRA) with Figma, improving usability and internal productivity.",
@@ -36,7 +36,7 @@ export const experiences: ExperienceCardProps[] = [
     companyName: "Fire Software",
     location: "Yaoundé, Cameroon",
     date: "Jun 2019 – Sep 2019 & Jul 2020 – Sep 2020",
-    logo: "/assets/fire.png",
+    logo: "/assets/fire.webp",
     description: [
       "Developed reusable UI components in vanilla JavaScript for the Fire UI library, improving design consistency.",
       "Built and connected user registration, listing, and profile modules for a training management system using PHP, JEE, and MySQL.",
@@ -48,7 +48,7 @@ export const experiences: ExperienceCardProps[] = [
     companyName: "Magic Software",
     location: "Yaoundé, Cameroon",
     date: "Jun 2018 – Oct 2018",
-    logo: "/assets/magic.png",
+    logo: "/assets/magic.webp",
     description: [
       "Developed key frontend interfaces (authentication, payment, profile) using React for a payroll management system.",
       "Worked with design mockups and implemented interactive, responsive pages to improve employee experience."
@@ -59,7 +59,7 @@ export const experiences: ExperienceCardProps[] = [
     companyName: "Ministry of External Relations (MINREX)",
     location: "Yaoundé, Cameroon",
     date: "Jun 2017 – Aug 2017",
-    logo: "/assets/minrex.png",
+    logo: "/assets/minrex.webp",
     description: [
       "Built the CRUD logic for the GESPAT asset management system using PHP and MySQL.",
       "Redesigned the server connection interface with HTML, CSS, and JavaScript to improve usability.",

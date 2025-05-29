@@ -19,7 +19,7 @@ export default component$(() => {
       <ToolsList />
       <Testimonials />
       <div class="mt-2 w-full">
-        <ContactMe img="/assets/mask-3.png" />
+        <ContactMe img="/assets/mask-3.webp" />
       </div>
     </section>
   );

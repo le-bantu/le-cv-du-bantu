@@ -33,12 +33,11 @@ const skills: Skill[] = [
   { img: "/icons/spring.svg", name: "Spring Boot" },
 ];
 
-
 export const SkillsList = component$(() => {
   return (
-    <section class="py-10 ">
+    <section class="py-10" aria-labelledby="skills-title">
       <div class="mx-12 mb-20 flex items-center gap-2">
-        <h2 class="font-semibold text-2xl sm:text-2xl uppercase m-0 whitespace-nowrap">
+        <h2 id="skills-title" class="font-semibold text-2xl sm:text-2xl uppercase m-0 whitespace-nowrap">
           My skills
         </h2>
         <div class="border-t border-gray-300 w-full mx-12"></div>

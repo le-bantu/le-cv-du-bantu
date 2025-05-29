@@ -12,7 +12,7 @@ export default component$(() => {
       </div>
       <section class="p-6">
         <ContactCard
-          imageSrc="/assets/profil-me-4.jpeg"
+          imageSrc="/assets/profil-me-4.webp"
           status={true}
           linkedinUrl="https://www.linkedin.com/in/yves-romuald-bahoken-710509226/"
           emailParts={["hello", "at", "romualdimben", "@", "gmail.com"]}
@@ -40,7 +40,7 @@ export default component$(() => {
       <div class="scale-up-hor-center">
         <LetsWorkTogether />
       </div>
-      <ContactMe img="/assets/mask-5.png" />
+      <ContactMe img="/assets/mask-5.webp" />
     </div>
   );
 });

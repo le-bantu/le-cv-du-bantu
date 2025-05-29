@@ -10,7 +10,7 @@ export const formations: Formation[] = [
       "Comprehensive training in software engineering, networking, and cybersecurity.",
       "Key subjects: Java, PHP, TCP/IP networks, databases, UML, DevOps, and software architecture."
     ],
-    logo: "/assets/supptic.png"
+    logo: "/assets/supptic.webp"
   },
   {
     title: "High School Diploma in Information Technologies",
@@ -20,6 +20,6 @@ export const formations: Formation[] = [
     description: [
       "Foundations in programming, algorithms, system design, and information systems."
     ],
-    logo: "/assets/Vogt.png"
+    logo: "/assets/Vogt.webp"
   }
 ];

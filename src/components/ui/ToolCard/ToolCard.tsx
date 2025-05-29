@@ -58,11 +58,25 @@ export const ToolCard = component$(({ img, name, index }: ToolCardProps) => {
   return (
     <div
       ref={wrapperRef}
+      role="listitem"
       class={`${visible.value ? 'slide-in-elliptic-top-fwd' : 'opacity-0'}`}
-      style={visible.value ? { animationDelay: `${index * 100}ms` } : {}}
+      style={
+        visible.value
+          ? {
+              animationDelay: `${index * 100}ms`,
+              animationFillMode: 'both',
+            }
+          : {}
+      }
     >
       <div class="card bg-white dark:bg-opacity-20 dark:bg-gray-800 border hover:border-secondary border-gray-300 rounded-xl shadow-sm w-[140px] h-[140px] flex flex-col items-center justify-center gap-2 px-4 text-center cursor-pointer">
-        <img src={img} alt={name} class="w-10 h-10 object-contain" />
+        <img
+          src={img}
+          alt={name}
+          loading="lazy"
+          decoding="async"
+          class="w-10 h-10 object-contain"
+        />
         <span class="text-sm font-semibold">{name}</span>
       </div>
     </div>

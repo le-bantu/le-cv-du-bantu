@@ -37,7 +37,7 @@ export const ProjectList = component$(() => {
       <div class="fade-in-bottom relative z-40">
         <ProjectFilter
           onFilterChange$={handleFilterChange}
-          bannerImage="/assets/background-3.png"
+          bannerImage="/assets/background-3.webp"
           bannerMessage="Mes projets"
         />
       </div>

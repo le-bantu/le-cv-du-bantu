@@ -8,7 +8,7 @@ export const projects: Project[] = [
     description: "Un portfolio rapide et interactif développé avec Qwik et TailwindCSS.",
     type: "professionnel",
     technologies: ["Qwik", "Tailwind"],
-    image: "/assets/project-1.png",
+    image: "/assets/project-1.webp",
     link: "https://portfolio-qwik.com",
     github: "https://github.com/romuald/portfolio-qwik"
   },
@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description: "API RESTful pour gérer des tâches, construite avec FastAPI et Docker.",
     type: "laboratoire",
     technologies: ["Python", "FastAPI", "Docker"],
-    image: "/assets/project-2.png",
+    image: "/assets/project-2.webp",
     link: "https://task-manager.com",
     github: "https://github.com/romuald/task-manager-api"
   },
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     description: "Plateforme de commandes alimentaires dédiée aux plats africains.",
     type: "professionnel",
     technologies: ["React", "Node.js", "MongoDB"],
-    image: "/assets/project-3.png",
+    image: "/assets/project-3.webp",
     link: "https://zougou.com",
     github: "https://github.com/romuald/zougou-zougou"
   },
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     description: "Application de gestion bancaire personnelle, orientée mobile.",
     type: "professionnel",
     technologies: ["Flutter", "Firebase"],
-    image: "/assets/project-4.png",
+    image: "/assets/project-4.webp",
     link: "https://bankai.app",
     github: "https://github.com/romuald/bankai"
   },
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     description: "Messagerie temps réel pour développeurs avec notifications push.",
     type: "laboratoire",
     technologies: ["Vue", "Socket.IO", "Express"],
-    image: "/assets/project-5.png",
+    image: "/assets/project-5.webp",
     link: "https://devchat.dev",
     github: "https://github.com/romuald/devchat"
   },
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     description: "Système de gestion de contenu ultrarapide basé sur Qwik.",
     type: "laboratoire",
     technologies: ["Qwik", "Supabase"],
-    image: "/assets/project-6.png",
+    image: "/assets/project-6.webp",
     link: "https://qwikcms.dev",
     github: "https://github.com/romuald/qwik-cms"
   },
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     description: "Mini site e-commerce avec panier, produits et intégration Stripe.",
     type: "professionnel",
     technologies: ["Next.js", "Stripe", "Tailwind"],
-    image: "/assets/project-7.png",
+    image: "/assets/project-7.webp",
     link: "https://ecommerce-lite.com",
     github: "https://github.com/romuald/ecommerce-lite"
   },
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     description: "Clone de Notion pour prise de notes avec markdown en temps réel.",
     type: "laboratoire",
     technologies: ["React", "Firebase", "Draft.js"],
-    image: "/assets/project-8.png",
+    image: "/assets/project-8.webp",
     link: "https://notion-clone.dev",
     github: "https://github.com/romuald/notion-clone"
   },
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     description: "Ancienne version de mon portfolio développée avec HTML/CSS/JS.",
     type: "professionnel",
     technologies: ["HTML", "CSS", "JavaScript"],
-    image: "/assets/project-9.png",
+    image: "/assets/project-9.webp",
     link: "https://portfolio-v1.com",
     github: "https://github.com/romuald/portfolio-v1"
   },
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     description: "Générateur de code automatique à partir de prompts IA.",
     type: "laboratoire",
     technologies: ["Node.js", "OpenAI API", "TypeScript"],
-    image: "/assets/project-10.png",
+    image: "/assets/project-10.webp",
     link: "https://ai-codegen.dev",
     github: "https://github.com/romuald/ai-codegen"
   }

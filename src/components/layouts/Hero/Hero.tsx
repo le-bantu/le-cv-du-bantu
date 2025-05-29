@@ -1,7 +1,7 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { heroData } from "../../../data/heroData";
-import "./Hero.css";
 import { Link } from "@builder.io/qwik-city";
+import "./Hero.css";
 
 export const Hero = component$(() => {
   const isVisible = useSignal(false);
@@ -11,17 +11,24 @@ export const Hero = component$(() => {
   });
 
   return (
-    <section class={`hero-container ${isVisible.value ? "fade-in-top" : ""}`}>
-      {/* Nouvelle div pour le fond */}
+    <header class={`hero-container ${isVisible.value ? "fade-in-top" : ""}`} aria-label="Présentation personnelle">
+      {/* Fond visuel */}
       <div
         class="background-pattern"
         style={{
-          "--bg-image": "url(/assets/background.png)",
+          "--bg-image": "url(/assets/background.webp)",
           "--bg-opacity": "0.15",
           "--dark-invert": "100%",
         }}
       ></div>
-      <div class="hero-inner ">
+
+      <div class="hero-inner">
+        {/* Titre masqué pour SEO */}
+        <h1 class="sr-only">
+          Yves Romuald Bahoken Imben – Développeur Fullstack JS/PHP
+        </h1>
+
+        {/* Barre latérale */}
         <div class="bar">
           <div class="contact-info flex flex-col items-center gap-6">
             <i class="fas fa-phone"></i>
@@ -33,46 +40,37 @@ export const Hero = component$(() => {
           <div class="scroll-indicator">
             <p class="vertical-text font-semibold">Scroll</p>
             <img
-              src="/assets/arrow.png"
-              alt=""
-              srcset=""
+              src="/assets/arrow.webp"
+              alt="Flèche de défilement"
               class="dark:filter dark:invert bounce-infinite mt-2"
+              loading="eager"
+              decoding="async"
             />
-            {/* <i class="fas fa-arrow-down"></i> */}
           </div>
         </div>
 
+        {/* Contenu principal */}
         <div class="hero-content">
           <div class="text-section fade-in-bottom">
-            <h5>
+            <h2 class="text-3xl font-semibold">
               Hello, <span class="text-primary">my name is</span>
-            </h5>
-            <h1 class="px-4 py-1 w-fit -rotate-1 md:-ml-4 bg-secondary rounded-xl max-md:bg-white max-md:dark:bg-black">
+            </h2>
+            <h3 class="px-4 py-1 w-fit -rotate-1 md:-ml-4 bg-secondary rounded-xl max-md:bg-white max-md:dark:bg-black">
               <span class="font-lover text-with-border text-white text-6xl">
                 {heroData.firstName}
               </span>{" "}
               <span class="font-lover text-with-border text-white text-6xl">
                 {heroData.lastName}
               </span>
-            </h1>
-            <h3 class="font-semibold">{heroData.profession}</h3>
-
-            <p class="font-semibold text-gray-700 text-8xl ">
+            </h3>
+            <h4 class="font-semibold text-3xl">{heroData.profession}</h4>
+            <p class="font-semibold text-gray-700 text-lg max-w-xl">
               {heroData.description}
             </p>
 
-            {/* <TextGenerateEffect 
-              words={heroData.description}
-              class="font-semibold text-gray-700 text-2xl pb-4"
-              typingSpeed={40}
-              cursorColor="text-primary-500"
-            /> */}
-
-            <div class="btn-group flex gap-2 items-center">
-              <Link
-                href="/contact"
-                class="btn-primary w-fit flex items-center gap-2"
-              >
+            {/* Boutons */}
+            <div class="btn-group flex gap-2 items-center mt-4">
+              <Link href="/contact" class="btn-primary w-fit flex items-center gap-2">
                 <lord-icon
                   src="https://cdn.lordicon.com/wwsllqpi.json"
                   trigger="hover"
@@ -87,7 +85,7 @@ export const Hero = component$(() => {
                 class="bg-white border px-4 py-2 dark:text-black rounded-md hover:shadow-2xl font-semibold w-fit flex items-center gap-2"
               >
                 <lord-icon
-                  src="https://cdn.lordicon.com/kydcudfv.json" // Icône "download"
+                  src="https://cdn.lordicon.com/kydcudfv.json"
                   trigger="hover"
                   colors="primary:#121331"
                   style={{ width: "24px", height: "24px" }}
@@ -97,24 +95,38 @@ export const Hero = component$(() => {
             </div>
           </div>
 
+          {/* Image profil */}
           <div class="image-section">
-            <img src={heroData.image} alt="Profile" class="profile-image" />
+            <img
+              src={heroData.image}
+              alt="Portrait de Yves Romuald Bahoken Imben"
+              class="profile-image"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
 
+        {/* Réseaux sociaux */}
         <div class="social-bar">
           <p class="vertical-text font-semibold">Follow me</p>
           <ul class="social-links">
             {heroData.socials.map((social) => (
               <li key={social.name}>
-                <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Réseau social ${social.name}`}
+                >
                   <i class={social.icon}></i>
                 </a>
               </li>
             ))}
           </ul>
         </div>
+
       </div>
-    </section>
+    </header>
   );
 });

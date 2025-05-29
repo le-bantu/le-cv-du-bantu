@@ -5,7 +5,7 @@ export const similarArticles = [
     link: "/blog/mastering-qwik-performance",
     author: "Yves Romuald bahoken",
     date: "20-04-2025",
-    image: "/assets/article-1.jpeg",
+    image: "/assets/article-1.webp",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const similarArticles = [
     link: "/blog/advanced-qwik-techniques",
     author: "Yves Romuald bahoken",
     date: "20-04-2025",
-    image: "/assets/article-2.jpeg",
+    image: "/assets/article-2.webp",
   },
   {
     id: 3,
@@ -21,6 +21,6 @@ export const similarArticles = [
     link: "/blog/qwik-optimization-tips",
     author: "Yves Romuald bahoken",
     date: "20-04-2025",
-    image: "/assets/article-3.jpeg",
+    image: "/assets/article-3.webp",
   },
 ];

@@ -16,8 +16,7 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
   const active = useSignal(0);
   const quoteContainerRef = useSignal<HTMLElement>();
 
-  // Styles pour l'animation des mots et des images
-  useStylesScoped$(`
+  useStylesScoped$(`  
     .quote-container .word {
       display: inline-block;
       opacity: 0;
@@ -48,7 +47,6 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
     }
   `);
 
-  // Gestion de l'autoplay
   useVisibleTask$(({ cleanup }) => {
     if (props.autoplay) {
       const interval = setInterval(() => {
@@ -58,17 +56,14 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
     }
   });
 
-  // Gestion du changement de témoignage
   const handleNext = $(() => {
     active.value = (active.value + 1) % props.testimonials.length;
   });
 
   const handlePrev = $(() => {
-    active.value =
-      (active.value - 1 + props.testimonials.length) % props.testimonials.length;
+    active.value = (active.value - 1 + props.testimonials.length) % props.testimonials.length;
   });
 
-  // Réinitialiser l'animation des mots lors du changement d'index
   useVisibleTask$(({ track }) => {
     track(() => active.value);
     const el = quoteContainerRef.value;
@@ -79,70 +74,71 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
     }
   });
 
+  const current = props.testimonials[active.value];
+
   return (
     <div class="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div class="relative grid grid-cols-1 gap-20 md:grid-cols-2">
-        {/* Colonne gauche : images */}
+        {/* Images */}
         <div>
           <div class="relative h-80 w-full">
             {props.testimonials.map((testimonial, index) => {
-              const isActive = active.value === index;
-              const isLeft = index < active.value;
-              const isRight = index > active.value;
+              const classes = [
+                'absolute border-2 border-solid border-secondary inset-0 h-full w-full rounded-3xl object-cover object-center image-transition',
+                active.value === index
+                  ? 'image-active'
+                  : index < active.value
+                  ? 'image-behind-left'
+                  : 'image-behind-right',
+              ].join(' ');
 
               return (
                 <img
-                  key={testimonial.src}
+                  key={`${testimonial.name}-${index}`}
                   src={testimonial.src}
                   alt={testimonial.name}
-                  class={[
-                    'absolute border-2 border-solid border-secondary inset-0 h-full w-full rounded-3xl object-cover object-center image-transition',
-                    isActive ? 'image-active' : '',
-                    isLeft ? 'image-behind-left' : '',
-                    isRight ? 'image-behind-right' : ''
-                  ].join(' ')}
+                  title={testimonial.name}
+                  loading="lazy"
+                  class={classes}
                 />
               );
             })}
           </div>
         </div>
 
-        {/* Colonne droite : texte */}
+        {/* Texte */}
         <div class="flex flex-col justify-between py-4">
           <div>
             <h3 class="text-2xl font-bold text-black dark:text-white">
-              {props.testimonials[active.value].name}
+              {current.name}
             </h3>
             <p class="text-sm text-gray-500 dark:text-neutral-500">
-              {props.testimonials[active.value].designation}
+              {current.designation}
             </p>
             <p
               ref={quoteContainerRef}
               class="quote-container mt-8 text-lg text-gray-500 dark:text-neutral-300"
             >
-              {/* Animation mot par mot */}
-              {props.testimonials[active.value].quote.split(' ').map((word, i) => (
-                <span
-                  key={i}
-                  class="word"
-                  style={{ transitionDelay: `${0.04 * i}s` }}
-                >
+              {current.quote.split(' ').map((word, i) => (
+                <span key={`word-${i}`} class="word" style={{ transitionDelay: `${0.04 * i}s` }}>
                   {word}&nbsp;
                 </span>
               ))}
             </p>
           </div>
 
-          {/* Boutons précédent / suivant */}
+          {/* Navigation */}
           <div class="flex gap-4 pt-12 md:pt-0">
             <button
               onClick$={handlePrev}
+              aria-label="Témoignage précédent"
               class="group flex h-8 w-8 items-center justify-center rounded-full text-white font-bold bg-brown hover:bg-deepbrown dark:bg-neutral-800 dark:hover:bg-neutral-700 hover:rotate-[20deg]"
             >
               ←
             </button>
             <button
               onClick$={handleNext}
+              aria-label="Témoignage suivant"
               class="group flex h-8 w-8 items-center justify-center rounded-full text-white font-bold bg-brown hover:bg-deepbrown dark:bg-neutral-800 dark:hover:bg-neutral-700 hover:rotate-[-20deg]"
             >
               →

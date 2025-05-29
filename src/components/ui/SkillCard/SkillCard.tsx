@@ -22,9 +22,9 @@ export const SkillCard = component$(({ img, name, index }: SkillCardProps) => {
       { threshold: 0.3 }
     );
 
-    if (wrapperRef.value) {
-      observer.observe(wrapperRef.value);
-    }
+    if (wrapperRef.value) observer.observe(wrapperRef.value);
+
+    return () => observer.disconnect(); // 🔧 nettoyage propre
   });
 
   useStylesScoped$(`
@@ -52,15 +52,24 @@ export const SkillCard = component$(({ img, name, index }: SkillCardProps) => {
   `);
 
   return (
-    <div
+    <article
       ref={wrapperRef}
-      class={`${visible.value ? 'fade-in-up' : 'opacity-0'}`}
+      class={visible.value ? 'fade-in-up' : 'opacity-0'}
       style={visible.value ? { animationDelay: `${index * 100}ms` } : {}}
+      aria-labelledby={`skill-${index}`}
     >
       <div class="card bg-white dark:bg-opacity-20 dark:bg-gray-800 border hover:border-secondary border-gray-300 rounded-xl shadow-sm w-[220px] h-[80px] flex items-center justify-start gap-4 px-4 cursor-pointer">
-        <img src={img} alt={name} class="w-10 h-10 object-contain" />
-        <span class="text-sm font-semibold">{name}</span>
+        <img
+          src={img}
+          alt={name}
+          loading="lazy"
+          decoding="async"
+          class="w-10 h-10 object-contain"
+        />
+        <span id={`skill-${index}`} class="text-sm font-semibold">
+          {name}
+        </span>
       </div>
-    </div>
+    </article>
   );
 });
