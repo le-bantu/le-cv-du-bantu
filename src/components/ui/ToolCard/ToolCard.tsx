@@ -73,7 +73,7 @@ export const ToolCard = component$(({ img, name, index }: ToolCardProps) => {
         <img
           src={img}
           alt={name}
-          loading="lazy"
+          loading="eager"
           decoding="async"
           class="w-10 h-10 object-contain"
         />
