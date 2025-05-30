@@ -10,7 +10,8 @@ export const About = component$(() => {
       >
         <img
           src="/assets/about-3.webp"
-          class="h-full w-full"
+          height="1536"
+          width="1024"
           alt="Illustration représentant le développeur"
           loading="lazy"
           decoding="async"
