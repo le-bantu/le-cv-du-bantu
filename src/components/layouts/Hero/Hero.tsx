@@ -110,6 +110,8 @@ export const Hero = component$(() => {
             <img
               src={heroData.image}
               alt="Portrait de Yves Romuald Bahoken Imben"
+              width="1024"
+              height="1536"
               class="profile-image"
               loading="eager"
               decoding="async"
