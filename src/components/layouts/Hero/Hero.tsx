@@ -64,7 +64,7 @@ export const Hero = component$(() => {
             <h2 class="text-3xl font-semibold">
               Hello, <span class="text-primary">my name is</span>
             </h2>
-            <h3 class="px-4 py-1 w-fit -rotate-1 md:-ml-4 bg-secondary rounded-xl max-md:bg-white max-md:dark:bg-black">
+            <h3 class="px-4 py-1 w-fit -rotate-1 md:-ml-4 bg-secondary rounded-xl dark:bg-dark max-md:bg-white max-md:dark:bg-black">
               <span class="font-lover text-with-border text-white text-6xl">
                 {heroData.firstName}
               </span>{" "}

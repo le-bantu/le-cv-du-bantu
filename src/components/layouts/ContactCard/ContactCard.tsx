@@ -40,14 +40,14 @@ export const ContactCard = component$((props: ContactCardProps) => {
             { 
             
             !props.status ?
-              <div class="p-3 md:p-4 flex items-center bg-gray-100 md:bg-transparent rounded-t-lg md:rounded-none md:rounded-tl-lg md:border-b border-gray-300">
+              <div class="p-3 md:p-4 flex items-center dark:bg-transparent dark:bg-transparent border-b bg-black md:bg-transparent rounded-t-lg md:rounded-none md:rounded-tl-lg md:border-b border-gray-300">
                 <div class="w-6 h-6 bg-red-300 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                   <div class="w-2.5 h-2.5 bg-red-600 rounded-full z-10"></div>
                 </div>
                 <div>Fully booked right now</div>
               </div>
               :
-              <div class="p-3 md:p-4 flex items-center bg-gray-100 md:bg-transparent rounded-t-lg md:rounded-none md:rounded-tl-lg md:border-b border-gray-300">
+              <div class="p-3 md:p-4 flex items-center bg-gray-100 dark:bg-transparent border-b md:bg-transparent rounded-t-lg md:rounded-none md:rounded-tl-lg md:border-b border-gray-300">
                 <div class="w-6 h-6 bg-green-300 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                   <div class="w-2.5 h-2.5 bg-green-600 rounded-full z-10"></div>
                 </div>
