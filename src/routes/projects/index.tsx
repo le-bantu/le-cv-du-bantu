@@ -10,7 +10,7 @@ export default component$(() => {
       </div>
       <div class="mt-2 relative -z-20">
         <ContactMe 
-        img="/assets/mask.webp"
+        img="/assets/mask-4.webp"
         />
       </div>
     </div>

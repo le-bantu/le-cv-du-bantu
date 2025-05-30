@@ -98,7 +98,7 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
                   src={testimonial.src}
                   alt={testimonial.name}
                   title={testimonial.name}
-                  loading="eager"
+                  loading="lazy"
                   class={classes}
                 />
               );

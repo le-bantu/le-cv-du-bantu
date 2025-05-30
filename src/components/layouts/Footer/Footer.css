@@ -1,5 +1,5 @@
 .footer {
-    background-color: #1a1a1a;
+    @apply bg-deepbrown;
     color: #f0f0f0;
     padding: 2rem;
     text-align: center;

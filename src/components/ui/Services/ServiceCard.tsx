@@ -14,7 +14,7 @@ export const ServiceCard = component$(({ icon, title, description }: ServiceCard
           src={icon}
           alt=""
           class="icon-image"
-          loading="eager"
+          loading="lazy"
           decoding="async"
           aria-hidden="true"
         />

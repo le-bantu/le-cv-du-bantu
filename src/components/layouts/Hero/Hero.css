@@ -27,7 +27,7 @@
 }
 
 .hero-container {
-    @apply overflow-hidden w-[90%] border-2 border-gray-200 shadow-2xl rounded-xl mt-6 mx-6 pt-10 pb-2 bg-white dark:bg-[#0c0b0b] text-black dark:text-white transition-all duration-700;
+    @apply overflow-hidden w-[95%] border-2 border-gray-200 shadow-2xl rounded-xl mt-6 mx-6 pt-10 pb-2 bg-white dark:bg-[#0c0b0b] text-black dark:text-white transition-all duration-700;
     opacity: 0;
     transform: translateY(50px);
 }

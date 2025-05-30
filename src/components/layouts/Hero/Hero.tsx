@@ -11,10 +11,22 @@ export const Hero = component$(() => {
   });
 
   return (
-    <header class={`hero-container ${isVisible.value ? "fade-in-top" : ""}`} aria-label="Présentation personnelle">
+    <header
+      class={`hero-container ${isVisible.value ? "fade-in-top" : ""}`}
+      aria-label="Présentation personnelle"
+    >
+      {/* Forcer le chargement du fond pour améliorer LCP */}
+      <img
+        src="/assets/background.webp"
+        alt=""
+        loading="eager"
+        fetchPriority="high"
+        class="hidden"
+      />
+
       {/* Fond visuel */}
       <div
-        class="background-pattern"
+        class="background-pattern min-h-[300px]"
         style={{
           "--bg-image": "url(/assets/background.webp)",
           "--bg-opacity": "0.15",
@@ -23,12 +35,10 @@ export const Hero = component$(() => {
       ></div>
 
       <div class="hero-inner">
-        {/* Titre masqué pour SEO */}
         <h1 class="sr-only">
           Yves Romuald Bahoken Imben – Développeur Fullstack JS/PHP
         </h1>
 
-        {/* Barre latérale */}
         <div class="bar">
           <div class="contact-info flex flex-col items-center gap-6">
             <i class="fas fa-phone"></i>
@@ -43,13 +53,12 @@ export const Hero = component$(() => {
               src="/assets/arrow.webp"
               alt="Flèche de défilement"
               class="dark:filter dark:invert bounce-infinite mt-2"
-              loading="eager"
+              loading="lazy"
               decoding="async"
             />
           </div>
         </div>
 
-        {/* Contenu principal */}
         <div class="hero-content">
           <div class="text-section fade-in-bottom">
             <h2 class="text-3xl font-semibold">
@@ -68,9 +77,11 @@ export const Hero = component$(() => {
               {heroData.description}
             </p>
 
-            {/* Boutons */}
             <div class="btn-group flex gap-2 items-center mt-4">
-              <Link href="/contact" class="btn-primary w-fit flex items-center gap-2">
+              <Link
+                href="/contact"
+                class="btn-primary w-fit flex items-center gap-2"
+              >
                 <lord-icon
                   src="https://cdn.lordicon.com/wwsllqpi.json"
                   trigger="hover"
@@ -95,7 +106,6 @@ export const Hero = component$(() => {
             </div>
           </div>
 
-          {/* Image profil */}
           <div class="image-section">
             <img
               src={heroData.image}
@@ -103,11 +113,11 @@ export const Hero = component$(() => {
               class="profile-image"
               loading="eager"
               decoding="async"
+              fetchPriority="high"
             />
           </div>
         </div>
 
-        {/* Réseaux sociaux */}
         <div class="social-bar">
           <p class="vertical-text font-semibold">Follow me</p>
           <ul class="social-links">
@@ -125,7 +135,6 @@ export const Hero = component$(() => {
             ))}
           </ul>
         </div>
-
       </div>
     </header>
   );

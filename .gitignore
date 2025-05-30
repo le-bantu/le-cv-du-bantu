@@ -5,6 +5,7 @@
 /server
 /.sfdx
 
+problems.txt
 # Development
 node_modules
 .env
