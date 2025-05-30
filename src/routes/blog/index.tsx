@@ -50,7 +50,7 @@ export default component$(() => {
       <div class="px-8">
         <div class="fade-in-bottom relative z-20">
           <BlogFilter
-            message="Découvrez nos derniers articles"
+            message="Last news"
             imageUrl="/assets/background-4.webp"
             onFilterChange$={handleFilterChange}
           />

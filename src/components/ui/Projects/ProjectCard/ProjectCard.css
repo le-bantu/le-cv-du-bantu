@@ -21,7 +21,7 @@
 }
 
 .description-container {
-  @apply absolute flex flex-col -z-10 ml-4 items-center bottom-20 left-auto pb-4  pt-10 right-auto w-[90%] px-4 rounded-b-lg text-white bg-opacity-100 bg-brown;
+  @apply absolute flex flex-col -z-10 ml-4 items-center bottom-20 left-auto pb-4  pt-10 right-auto w-[90%] px-4 rounded-b-lg text-white bg-opacity-100 bg-dark;
   transform: translateY(12px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

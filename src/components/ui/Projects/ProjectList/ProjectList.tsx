@@ -38,7 +38,7 @@ export const ProjectList = component$(() => {
         <ProjectFilter
           onFilterChange$={handleFilterChange}
           bannerImage="/assets/background-3.webp"
-          bannerMessage="Mes projets"
+          bannerMessage="My Projects"
         />
       </div>
 

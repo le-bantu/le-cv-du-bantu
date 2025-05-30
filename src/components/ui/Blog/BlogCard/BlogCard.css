@@ -62,7 +62,7 @@
 
 @media (prefers-color-scheme: dark) {
   .blog-card {
-    @apply bg-deepbrown;
+    @apply bg-dark;
     color: #fff;
   }
 }
