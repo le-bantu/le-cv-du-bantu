@@ -13,14 +13,14 @@ export const EducationList = component$(({ title, type, items }: EducationListPr
       <h2 class="text-lg font-semibold mb-4">{title}</h2>
 
       {items.map((item, index) => (
-        <div key={index} class="flex flex-col gap-1 p-4 pb-4 last:border-b-0">
-          <div class="flex justify-between items-start gap-4">
+        <div key={index} class="flex flex-col gap-1 p-4 pb-4 max-lg:p-1 last:border-b-0">
+          <div class="flex justify-between items-start gap-4 max-lg:flex-col">
             {/* Logo */}
             {item.logo && (
               <img
                 src={item.logo}
                 alt={item.title}
-                class="w-12 h-12 object-contain rounded-md shrink-0"
+                class="w-12 h-12 object-contain rounded-md shrink-0 max-lg:hidden"
               />
             )}
 

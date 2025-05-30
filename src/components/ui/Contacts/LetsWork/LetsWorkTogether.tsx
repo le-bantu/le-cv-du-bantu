@@ -16,7 +16,7 @@ export const LetsWorkTogether = component$(() => {
       </div>
 
       {/* Texte descriptif */}
-      <p class="text-center text-2xl text-gray-600 dark:text-gray-300 my-4 max-w-[50%]">
+      <p class="text-center text-2xl text-gray-600 dark:text-gray-300 my-4 max-w-[50%] max-lg:max-md-[90%] max-lg:max-w-[70%]">
         You can contact me on the networks to discuss your projects and achieve your goals together. I'm always open to new collaborations!
       </p>
     </div>

@@ -1,4 +1,4 @@
-import { component$, Slot, useVisibleTask$ } from "@builder.io/qwik";
+import { $, component$, Slot, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { Header } from "../components/layouts/Header/Header";
 import { Footer } from "../components/layouts/Footer/Footer";
@@ -48,8 +48,7 @@ export const head = {
     },
     {
       property: "og:see_also",
-      content:
-        "https://www.linkedin.com/in/yves-romuald-bahoken-710509226/",
+      content: "https://www.linkedin.com/in/yves-romuald-bahoken-710509226/",
     },
     {
       name: "twitter:card",
@@ -69,7 +68,7 @@ export const head = {
       content: "https://le-cv-du-bantu.tech/images/og-image.jpg",
     },
   ],
-   links: [
+  links: [
     {
       rel: "preload",
       as: "image",
@@ -99,6 +98,28 @@ export default component$(() => {
     path.includes("register") ||
     path.includes("admin");
 
+  const isPlaying = useSignal(false);
+  const audioRef = useSignal<HTMLAudioElement>();
+
+  useVisibleTask$(() => {
+    // Crée l'élément audio uniquement côté client
+    const audio = new Audio("/audio/music.mp3");
+    audio.loop = true;
+    audio.volume = 0.5;
+    audioRef.value = audio;
+  });
+
+  const toggleMusic = $(() => {
+    if (!audioRef.value) return;
+
+    if (isPlaying.value) {
+      audioRef.value.pause();
+    } else {
+      audioRef.value.play();
+    }
+
+    isPlaying.value = !isPlaying.value;
+  });
   // Optionnel : afficher le loader global au premier chargement
   useVisibleTask$(() => {
     const loader = document.getElementById("app-loader");
@@ -111,6 +132,13 @@ export default component$(() => {
       {!noLayout && <Header />}
       <main class="flex-grow mt-[3.5rem]">
         <Slot />
+        <button
+          onClick$={toggleMusic}
+          title="Jouer / Arrêter la musique. Crédit : Richard Bona - Kwa singa "
+          class="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center bg-secondary text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-15 hover:opacity-100"
+        >
+          <i class="fa fa-music"></i>
+        </button>
       </main>
       {!noLayout && <Footer />}
     </div>

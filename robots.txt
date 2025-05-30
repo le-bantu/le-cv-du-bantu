@@ -1,0 +1,16 @@
+# Autorise tous les robots
+User-agent: *
+
+# Empêche l'indexation des pages sensibles ou inutiles
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /admin
+Disallow: /api/
+Disallow: /private/
+
+# Autorise tout le reste
+Allow: /
+
+# Lien vers le sitemap (à adapter selon ton cas)
+Sitemap: https://le-cv-du-bantu.tech/sitemap.xml

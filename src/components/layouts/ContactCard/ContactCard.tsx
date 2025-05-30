@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
+import './ContactCard.css';
 
 interface Language {
   name: string;
@@ -19,9 +20,9 @@ interface ContactCardProps {
 
 export const ContactCard = component$((props: ContactCardProps) => {
   return (
-    <div class="flex w-[100%] flex-col-reverse md:flex-row md:items-center md:mx-auto md:max-w-[80%] gap-5 px-14 mt-12 h-fit">
+    <div class="contact-card__container flex w-[100%] flex-col-reverse md:flex-row md:items-center md:mx-auto md:max-w-[80%] gap-5 px-14 mt-12 h-fit">
       {/* Image */}
-      <div class="max-md:hidden w-[27rem] h-[21rem] dark:border-slate-800 dark:border-2 overflow-hidden border shadow-xl rounded-xl bounce-in-left">
+      <div class="contact-card__img__div w-[27rem] h-[21rem] dark:border-slate-800 dark:border-2 overflow-hidden border shadow-xl rounded-xl bounce-in-left">
         <img src={props.imageSrc} class="rounded-lg w-full object-cover" alt="Contact illustration" />
       </div>
 

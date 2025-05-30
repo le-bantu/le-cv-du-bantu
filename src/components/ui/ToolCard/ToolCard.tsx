@@ -1,33 +1,16 @@
-import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 import { useStylesScoped$ } from '@builder.io/qwik';
 
 interface ToolCardProps {
   img: string;
   name: string;
   index: number;
+  visible: boolean;
 }
 
-export const ToolCard = component$(({ img, name, index }: ToolCardProps) => {
-  const visible = useSignal(false);
-  const wrapperRef = useSignal<HTMLElement>();
-
-  useVisibleTask$(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          visible.value = true;
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (wrapperRef.value) {
-      observer.observe(wrapperRef.value);
-    }
-  });
-
-  useStylesScoped$(`
+export const ToolCard = component$(({ img, name, index, visible }: ToolCardProps) => {
+  
+   useStylesScoped$(`
     .slide-in-elliptic-top-fwd {
       animation: slideInEllipticTopFwd 0.4s ease-out both;
     }
@@ -57,13 +40,12 @@ export const ToolCard = component$(({ img, name, index }: ToolCardProps) => {
 
   return (
     <div
-      ref={wrapperRef}
       role="listitem"
-      class={`${visible.value ? 'slide-in-elliptic-top-fwd' : 'opacity-0'}`}
+      class={`${visible ? 'slide-in-elliptic-top-fwd' : 'opacity-0'}`}
       style={
-        visible.value
+        visible
           ? {
-              animationDelay: `${index * 100}ms`,
+              animationDelay: `${index * 50}ms`,
               animationFillMode: 'both',
             }
           : {}

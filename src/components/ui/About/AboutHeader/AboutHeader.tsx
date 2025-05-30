@@ -22,12 +22,12 @@ export const AboutHeader = component$(() => {
 
       {/* Groupe présentation texte */}
       <div class="about-header__text flex flex-col items-start gap-2 mt-20">
-        <div class="flex flex-col">
+        <div class="flex flex-col max-lg:text-center max-lg:mx-auto max-lg:w-full">
           <h1 class="text-3xl font-bold bounce-in-top delay-150">
             Yves Romuald Bahoken
           </h1>
           <p class="font-medium text-xl text-gray-600 bounce-in-top delay-[450ms]">
-            Fullstack Developer
+            Fullstack Software Engineer
           </p>
         </div>
 
@@ -41,16 +41,18 @@ export const AboutHeader = component$(() => {
           </div>
           <div class="flex gap-2">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/yves-romuald-bahoken-710509226/"
               class="bounce-in-top delay-300 bg-secondary text-white items-center flex gap-2 px-4 py-2 rounded-md hover:shadow-2xl hover:bg-deepbrown transition-all duration-300"
+              target="_blank" aria-label="LinkedIn"
             >
               <i class="fab fa-linkedin"></i>
               LinkedIn
             </a>
             <a
-              href="#"
+              href="../cv.pdf"
               style={{ animationDelay: "300ms" }}
               class="roll-in-blurred-right delay-400  bg-[#1a1a1a] flex items-center gap-2 text-white px-4 py-2 rounded-md hover:bg-gray-900 transition-all duration-300"
+              aria-label="cv"
             >
               <i class="fas fa-download"></i>
               Curriculum

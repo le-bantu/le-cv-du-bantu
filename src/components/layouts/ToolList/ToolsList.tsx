@@ -1,34 +1,33 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { ToolCard } from '~/components/ui/ToolCard/ToolCard';
+import { tools } from '~/data/tools';
 
-const tools = [
-  { img: '/icons/vscode.svg', name: 'VS Code' },
-  { img: '/icons/powershell.svg', name: 'PowerShell' },
-  { img: '/icons/intellij.svg', name: 'IntelliJ' },
-  { img: '/icons/evernote.svg', name: 'Evernote' },
-  { img: '/icons/docker.svg', name: 'Docker' },
-  { img: '/icons/github.svg', name: 'GitHub' },
-  { img: '/icons/gitlab.svg', name: 'GitLab' },
-  { img: '/icons/bitbucket.svg', name: 'BitBucket' },
-  { img: '/icons/Jira.svg', name: 'Jira' },
-  { img: '/icons/SonarQube.svg', name: 'SonarQube' },
-  { img: '/icons/Swagger.svg', name: 'Swagger' },
-  { img: '/icons/postman.svg', name: 'Postman' },
-  { img: '/icons/teams.svg', name: 'Microsoft teams' },
-  { img: '/icons/meet.svg', name: 'Google Meet' },
-  { img: '/icons/NPM.svg', name: 'NPM' },
-  { img: '/icons/Trello.svg', name: 'Trello' },
-  { img: '/icons/jenkins.svg', name: 'Jenkins' },
-  { img: '/icons/vite.svg', name: 'Vite' },
-  { img: '/icons/portainer.svg', name: 'Portainer' },
-  { img: '/icons/kubernetes.svg', name: 'Kubernetes' },
-  { img: '/icons/linux.svg', name: 'Linux' },
-  { img: '/icons/windows.svg', name: 'Windows' },
-];
 
 export const ToolsList = component$(() => {
+  const sectionRef = useSignal<HTMLElement>();
+  const toolsVisible = useSignal(false);
+
+  useVisibleTask$(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        toolsVisible.value = true;
+        console.log('ToolsList visible ! 🔥'); // 👈 DEBUG
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.2 }
+  );
+
+  if (sectionRef.value) {
+    observer.observe(sectionRef.value);
+  }
+});
+
+
   return (
     <section
+      ref={sectionRef}
       class="py-10 px-5"
       aria-labelledby="tools-title"
     >
@@ -52,6 +51,7 @@ export const ToolsList = component$(() => {
             img={tool.img}
             name={tool.name}
             index={index}
+            visible={toolsVisible.value}
           />
         ))}
       </div>

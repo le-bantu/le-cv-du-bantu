@@ -22,6 +22,7 @@ export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.webp" />
         <meta charset="utf-8" />
         {!isDev && (
           <link

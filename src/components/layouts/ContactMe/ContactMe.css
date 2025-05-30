@@ -107,3 +107,36 @@
       @apply w-full;
   }
 }
+
+.contact__message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  max-width: 90%;
+  animation: shakeIn 0.4s ease;
+}
+
+.contact__message--success {
+  background-color: rgba(22, 199, 46, 0.1);
+  color: #16c72e;
+  border: 1px solid #16c72e;
+}
+
+.contact__message--error {
+  background-color: rgba(226, 23, 23, 0.1);
+  color: #e21717;
+  border: 1px solid #e21717;
+}
+
+@keyframes shakeIn {
+  0% { transform: translateX(-10px); opacity: 0; }
+  30% { transform: translateX(10px); }
+  60% { transform: translateX(-5px); }
+  90% { transform: translateX(3px); }
+  100% { transform: translateX(0); opacity: 1; }
+}

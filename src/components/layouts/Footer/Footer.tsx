@@ -5,14 +5,14 @@ export const Footer = component$(() => {
   return (
     <footer class="footer">
       <div class="social-icons">
-        <a href="https://linkedin.com/in/tonprofil" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/yves-romuald-bahoken-710509226/" target="_blank" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
-        <a href="https://github.com/tonprofil" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/Bahoken" target="_blank" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://twitter.com/tonprofil" target="_blank" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
+        <a href="https://github.com/le-bantu" target="_blank" aria-label="Github">
+          <i class="fab fa-github"></i>
         </a>
       </div>
       <div class="footer-text">

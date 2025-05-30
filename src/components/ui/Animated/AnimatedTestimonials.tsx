@@ -107,7 +107,7 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
         </div>
 
         {/* Texte */}
-        <div class="flex flex-col justify-between py-4">
+        <div class="flex flex-col justify-between py-4 max-md:text-center">
           <div>
             <h3 class="text-2xl font-bold text-black dark:text-white">
               {current.name}
@@ -128,7 +128,7 @@ export const AnimatedTestimonials = component$((props: AnimatedTestimonialsProps
           </div>
 
           {/* Navigation */}
-          <div class="flex gap-4 pt-12 md:pt-0">
+          <div class="flex gap-4 pt-12 md:pt-0 max-md:mx-auto">
             <button
               onClick$={handlePrev}
               aria-label="Témoignage précédent"

@@ -1,0 +1,8 @@
+@media (max-width: 1125px) {
+    .contact-card__img__div {
+        display: none;
+    }
+    .contact-card__container {
+        padding-inline: 0px;
+    }
+}

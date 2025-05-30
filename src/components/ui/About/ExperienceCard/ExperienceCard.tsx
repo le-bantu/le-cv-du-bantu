@@ -20,9 +20,9 @@ export const ExperienceCard = component$((props: ExperienceCardProps) => {
   };
 
   return (
-    <div class="experience-card flex flex-col gap-4 pt-4 mx-6 pb-6 dark:bg-[#1a1a1a] border-b">
-      <div class="summary flex justify-between items-center">
-        <div class="flex items-center gap-2">
+    <div class="experience-card flex flex-col gap-4 pt-4 mx-6 max-lg:mx-1 pb-6 dark:bg-[#1a1a1a] border-b">
+      <div class="summary flex justify-between items-center max-lg:flex-col  max-lg:items-start max-lg:gap-2 ">
+        <div class="flex items-center max-lg:items-start gap-2">
           <img
             src={logo}
             alt={companyName}
