@@ -1,30 +1,36 @@
-import { $, component$, Slot, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import {
+  $,
+  component$,
+  Slot,
+  useSignal,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { Header } from "../components/layouts/Header/Header";
 import { Footer } from "../components/layouts/Footer/Footer";
 // import { AppLoader } from "../components/ui/AppLoader";
 
 export const head = {
-  title: "Yves Romuald BAHOKEN – Développeur Fullstack JS | Portfolio",
+  title: "Yves Romuald BAHOKEN – Fullstack JS Developer | Portfolio",
   meta: [
     {
       name: "description",
       content:
-        "Portfolio de BAHOKEN Yves Romuald, développeur fullstack JavaScript (Laravel, React, Qwik). Missions en remote pour l’Europe et l’Afrique.",
+        "Portfolio of Yves Romuald BAHOKEN, fullstack JavaScript developer (Laravel, React, Qwik). Remote work available for Europe and Africa.",
     },
     {
       name: "keywords",
       content:
-        "portfolio, développeur, fullstack, javascript, laravel, qwik, react, freelance, github, linkedin, cameroun, europe, afrique",
+        "portfolio, developer, fullstack, javascript, laravel, qwik, react, freelance, github, linkedin, cameroon, europe, africa",
     },
     {
       property: "og:title",
-      content: "BAHOKEN Yves Romuald – Développeur Fullstack JS",
+      content: "Yves Romuald BAHOKEN – Fullstack JS Developer",
     },
     {
       property: "og:description",
       content:
-        "Découvrez mon travail, mes compétences et mes services. Missions en télétravail disponibles.",
+        "Discover my work, skills, and services. Remote opportunities available.",
     },
     {
       property: "og:type",
@@ -56,12 +62,12 @@ export const head = {
     },
     {
       name: "twitter:title",
-      content: "Yves Romuald – Développeur Fullstack JS",
+      content: "Yves Romuald – Fullstack JS Developer",
     },
     {
       name: "twitter:description",
       content:
-        "Explorez mes projets et services en développement web fullstack JavaScript moderne.",
+        "Explore my projects and services in modern fullstack JavaScript development.",
     },
     {
       name: "twitter:image",
@@ -84,7 +90,7 @@ export const head = {
     {
       rel: "preload",
       as: "image",
-      href: "/assets/your-hero-image.webp", // Remplace par heroData.image si c’est statique
+      href: "/assets/your-hero-image.webp", // Replace with heroData.image if it's static
       fetchpriority: "high",
     },
   ],
